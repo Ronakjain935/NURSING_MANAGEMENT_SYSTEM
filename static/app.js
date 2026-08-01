@@ -15,6 +15,8 @@ const state = {
   selectedPlant: null,
   activeCategory: 'all',
   searchQuery: '',
+  token: localStorage.getItem('pv_token') || null,
+  currentUser: JSON.parse(localStorage.getItem('pv_user') || 'null'),
   filters: {
     sunlight: 'all',
     experience: 'all',
@@ -37,12 +39,6 @@ const state = {
   chatMessages: [
     { sender: 'bot', text: 'Welcome to PlantVerse AI! Ask me about plant care, leaf pathology, or AI crop agronomy recommendations.', source: 'PlantVerse AI Core v3.0' }
   ],
-  userProfile: {
-    name: 'Sarah Jenkins',
-    email: 'sarah.j@example.com',
-    rewardPoints: 480,
-    memberStatus: 'Gold Gardener'
-  },
   activeOrder: null
 };
 
@@ -51,9 +47,28 @@ document.addEventListener('DOMContentLoaded', async () => {
   await fetchCategories();
   await fetchPlants();
   await fetchOrders();
+  await verifySession();
   setupEventListeners();
   router('landing');
 });
+
+async function verifySession() {
+  if (!state.token) return;
+  try {
+    const res = await fetch('/api/auth/me', {
+      headers: { 'Authorization': `Bearer ${state.token}` }
+    });
+    if (res.ok) {
+      const user = await res.json();
+      state.currentUser = user;
+      localStorage.setItem('pv_user', JSON.stringify(user));
+    } else {
+      handleLogout(false);
+    }
+  } catch (err) {
+    console.error('Session verification failed:', err);
+  }
+}
 
 async function fetchCategories() {
   try {
@@ -90,6 +105,21 @@ async function fetchOrders() {
 
 // Router State Engine
 function router(viewName, param = null) {
+  // Security Route Guard Checks
+  if (viewName === 'admin-dashboard') {
+    if (!state.currentUser || (state.currentUser.role !== 'OWNER' && state.currentUser.role !== 'SUPER_ADMIN')) {
+      showToast('Nursery Owner authentication required');
+      viewName = 'owner-login';
+      param = 'Access Restricted: Please log in with a Nursery Owner account to access the Admin Portal.';
+    }
+  } else if (viewName === 'user-dashboard') {
+    if (!state.currentUser) {
+      showToast('Please log in to view your profile');
+      viewName = 'user-login';
+      param = 'Security Notice: Please log in to access your customer account.';
+    }
+  }
+
   state.activeView = viewName;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -109,6 +139,12 @@ function router(viewName, param = null) {
   switch (viewName) {
     case 'landing':
       renderLandingView(container);
+      break;
+    case 'owner-login':
+      renderOwnerLoginView(container, param);
+      break;
+    case 'user-login':
+      renderUserLoginView(container, param);
       break;
     case 'crop-ai':
       renderCropRecommendView(container);
@@ -165,6 +201,56 @@ function router(viewName, param = null) {
       renderLandingView(container);
   }
   updateHeaderBadges();
+  updateHeaderAuthUI();
+}
+
+function updateHeaderAuthUI() {
+  const container = document.getElementById('auth-header-container');
+  if (!container) return;
+
+  if (state.currentUser && state.token) {
+    const isOwner = state.currentUser.role === 'OWNER' || state.currentUser.role === 'SUPER_ADMIN';
+    const roleBadgeClass = isOwner ? 'bg-amber-100 text-amber-900 border-amber-300 font-extrabold' : 'bg-emerald-100 text-emerald-900 border-emerald-300 font-bold';
+    const roleLabel = isOwner ? 'Owner' : 'Customer';
+    
+    container.innerHTML = `
+      <div class="flex items-center space-x-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+        <div class="w-7 h-7 rounded-lg ${isOwner ? 'bg-gradient-to-tr from-amber-600 to-amber-400' : 'bg-gradient-to-tr from-emerald-700 to-teal-500'} text-white flex items-center justify-center text-xs font-bold shadow-sm">
+          <i class="fa-solid ${isOwner ? 'fa-user-shield' : 'fa-user-leaf'}"></i>
+        </div>
+        <div class="hidden md:block text-left text-xs pr-1">
+          <span class="font-bold text-slate-900 block truncate max-w-[110px] leading-tight">${state.currentUser.fullName || state.currentUser.email}</span>
+          <span class="text-[9px] px-1.5 py-0.2 rounded font-extrabold uppercase border ${roleBadgeClass}">${roleLabel}</span>
+        </div>
+        ${isOwner ? `
+          <button onclick="router('admin-dashboard')" class="bg-slate-900 hover:bg-slate-800 text-amber-400 font-extrabold text-[11px] px-2.5 py-1.5 rounded-lg shadow-sm transition-all flex items-center space-x-1">
+            <i class="fa-solid fa-chart-pie text-amber-400"></i>
+            <span>Owner Portal</span>
+          </button>
+        ` : `
+          <button onclick="router('user-dashboard')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] px-2.5 py-1.5 rounded-lg shadow-sm transition-all flex items-center space-x-1">
+            <i class="fa-solid fa-sliders"></i>
+            <span>My Account</span>
+          </button>
+        `}
+        <button onclick="handleLogout()" title="Log out" class="w-7 h-7 rounded-lg bg-slate-200 hover:bg-red-100 hover:text-red-600 text-slate-600 flex items-center justify-center text-xs transition-all">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    `;
+  } else {
+    container.innerHTML = `
+      <button id="btn-header-user-login" onclick="router('user-login')" class="hidden sm:flex items-center space-x-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold px-3.5 py-2.5 rounded-xl border border-emerald-200 transition-all">
+        <i class="fa-solid fa-user text-emerald-600"></i>
+        <span>User Login</span>
+      </button>
+      
+      <button id="btn-header-owner-login" onclick="router('owner-login')" class="hidden sm:flex items-center space-x-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-md transition-all">
+        <i class="fa-solid fa-user-shield text-amber-400"></i>
+        <span>Owner Login</span>
+      </button>
+    `;
+  }
 }
 
 function updateHeaderBadges() {
@@ -627,12 +713,542 @@ function renderKnowledgeCenterView(container) {
   container.innerHTML = `<div class="max-w-4xl mx-auto p-10 space-y-6"><h1 class="text-3xl font-extrabold">Knowledge Center</h1></div>`;
 }
 
-function renderUserDashboardView(container) {
-  container.innerHTML = `<div class="max-w-4xl mx-auto p-10 space-y-6"><h1 class="text-3xl font-extrabold">User Dashboard</h1></div>`;
+// --- OWNER & USER AUTHENTICATION VIEWS & HANDLERS ---
+
+function renderOwnerLoginView(container, notice = null) {
+  container.innerHTML = `
+    <div class="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-950 text-slate-100 relative overflow-hidden">
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-md w-full space-y-8 bg-slate-900/90 backdrop-blur-xl p-8 rounded-3xl border border-slate-800 shadow-2xl relative z-10">
+        
+        <div class="text-center space-y-3">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-300 text-slate-950 shadow-xl mb-2">
+            <i class="fa-solid fa-user-shield text-3xl"></i>
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-white font-display">Owner Portal Login</h2>
+          <p class="text-xs text-amber-400 font-semibold uppercase tracking-wider">Restricted Security Domain • Nursery Management</p>
+        </div>
+
+        ${notice ? `
+          <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl text-amber-300 text-xs flex items-start space-x-3">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base mt-0.5"></i>
+            <div>
+              <span class="font-bold block">Security Requirement</span>
+              <span>${notice}</span>
+            </div>
+          </div>
+        ` : ''}
+
+        <div id="owner-login-error" class="hidden bg-red-500/10 border border-red-500/30 p-4 rounded-2xl text-red-300 text-xs flex items-center space-x-3">
+          <i class="fa-solid fa-circle-xmark text-red-400 text-base"></i>
+          <span id="owner-login-error-msg">Invalid owner credentials</span>
+        </div>
+
+        <form onsubmit="handleOwnerLoginSubmit(event)" class="space-y-5">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-400 mb-1.5">Owner Email Address</label>
+            <div class="relative">
+              <i class="fa-solid fa-envelope absolute left-4 top-3.5 text-slate-500 text-sm"></i>
+              <input type="email" id="owner-email" required value="owner@plantverse.ai" 
+                class="w-full pl-11 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-amber-500 transition-colors">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-400 mb-1.5">Owner Password</label>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-4 top-3.5 text-slate-500 text-sm"></i>
+              <input type="password" id="owner-password" required value="owner2026" 
+                class="w-full pl-11 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-amber-500 transition-colors">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold py-3.5 rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all text-sm flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-key"></i>
+            <span>Authenticate as Nursery Owner</span>
+          </button>
+        </form>
+
+        <div class="pt-4 border-t border-slate-800/80 text-center space-y-3">
+          <span class="text-[11px] text-slate-500 font-medium">Quick Access Demo Accounts:</span>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <button onclick="performOwnerLogin('owner@plantverse.ai', 'owner2026')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-bold py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-1.5">
+              <i class="fa-solid fa-crown text-amber-400"></i>
+              <span>Demo Nursery Owner</span>
+            </button>
+            <button onclick="performOwnerLogin('admin@plantverse.ai', 'adminSecret2026')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 text-xs font-bold py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-1.5">
+              <i class="fa-solid fa-shield-halved text-teal-400"></i>
+              <span>Super Admin</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center pt-2">
+          <button onclick="router('user-login')" class="text-xs text-slate-400 hover:text-emerald-400 transition-colors">
+            Are you a customer? Go to <span class="underline font-bold text-emerald-400">User Login Page</span> →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
 }
 
-function renderAdminDashboardView(container) {
-  container.innerHTML = `<div class="max-w-4xl mx-auto p-10 space-y-6"><h1 class="text-3xl font-extrabold">Nursery Owner AI Dashboard</h1></div>`;
+function renderUserLoginView(container, notice = null) {
+  container.innerHTML = `
+    <div class="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-50 relative">
+      <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative z-10">
+        
+        <div class="text-center space-y-2">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-white shadow-lg mb-2">
+            <i class="fa-solid fa-user-leaf text-3xl"></i>
+          </div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 font-display">User Account Portal</h2>
+          <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider">Gardener & Customer Login</p>
+        </div>
+
+        ${notice ? `
+          <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl text-emerald-800 text-xs flex items-start space-x-3">
+            <i class="fa-solid fa-circle-info text-emerald-600 text-base mt-0.5"></i>
+            <div>
+              <span class="font-bold block">Account Notice</span>
+              <span>${notice}</span>
+            </div>
+          </div>
+        ` : ''}
+
+        <div class="flex bg-slate-100 p-1 rounded-xl">
+          <button id="user-tab-login" onclick="switchUserAuthTab('login')" class="flex-1 py-2 rounded-lg text-xs font-bold bg-white text-emerald-700 shadow-sm transition-all">Sign In</button>
+          <button id="user-tab-register" onclick="switchUserAuthTab('register')" class="flex-1 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition-all">Create Account</button>
+        </div>
+
+        <div id="user-login-error" class="hidden bg-red-50 border border-red-200 p-4 rounded-2xl text-red-700 text-xs flex items-center space-x-3">
+          <i class="fa-solid fa-circle-xmark text-red-500 text-base"></i>
+          <span id="user-login-error-msg">Invalid credentials</span>
+        </div>
+
+        <form id="user-form-login" onsubmit="handleUserLoginSubmit(event)" class="space-y-5">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Email Address</label>
+            <div class="relative">
+              <i class="fa-solid fa-envelope absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+              <input type="email" id="user-email" required value="sarah.j@example.com" 
+                class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Password</label>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+              <input type="password" id="user-password" required value="gardener2026" 
+                class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-500 transition-colors">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-xl shadow-md transition-all text-sm flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Log In to Account</span>
+          </button>
+        </form>
+
+        <form id="user-form-register" onsubmit="handleUserRegisterSubmit(event)" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Full Name</label>
+            <input type="text" id="reg-fullname" required placeholder="e.g. Alex Rivera" 
+              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Email Address</label>
+            <input type="email" id="reg-email" required placeholder="alex@example.com" 
+              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Phone Number</label>
+            <input type="tel" id="reg-phone" placeholder="+1 (555) 000-0000" 
+              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Password</label>
+            <input type="password" id="reg-password" required minlength="6" placeholder="••••••••" 
+              class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl shadow-md transition-all text-sm flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Create New Customer Account</span>
+          </button>
+        </form>
+
+        <div class="pt-4 border-t border-slate-100 text-center space-y-3">
+          <span class="text-[11px] text-slate-400 font-medium">Quick Demo Customer Account:</span>
+          <button onclick="performUserLogin('sarah.j@example.com', 'gardener2026')" class="w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-user-check text-emerald-600"></i>
+            <span>Login as Demo User (Sarah Jenkins)</span>
+          </button>
+        </div>
+
+        <div class="text-center pt-2">
+          <button onclick="router('owner-login')" class="text-xs text-slate-500 hover:text-amber-600 transition-colors">
+            Are you the Nursery Owner? Access <span class="underline font-bold text-amber-600">Owner Portal</span> →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
+}
+
+function switchUserAuthTab(tab) {
+  const loginForm = document.getElementById('user-form-login');
+  const regForm = document.getElementById('user-form-register');
+  const loginTab = document.getElementById('user-tab-login');
+  const regTab = document.getElementById('user-tab-register');
+
+  if (!loginForm || !regForm) return;
+
+  if (tab === 'login') {
+    loginForm.classList.remove('hidden');
+    regForm.classList.add('hidden');
+    loginTab.className = 'flex-1 py-2 rounded-lg text-xs font-bold bg-white text-emerald-700 shadow-sm transition-all';
+    regTab.className = 'flex-1 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition-all';
+  } else {
+    loginForm.classList.add('hidden');
+    regForm.classList.remove('hidden');
+    regTab.className = 'flex-1 py-2 rounded-lg text-xs font-bold bg-white text-emerald-700 shadow-sm transition-all';
+    loginTab.className = 'flex-1 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition-all';
+  }
+}
+
+async function performOwnerLogin(email, password) {
+  const errBox = document.getElementById('owner-login-error');
+  const errMsg = document.getElementById('owner-login-error-msg');
+  if (errBox) errBox.classList.add('hidden');
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const json = await res.json();
+    if (!res.ok) {
+      if (errBox && errMsg) {
+        errMsg.innerText = json.detail || 'Invalid owner credentials';
+        errBox.classList.remove('hidden');
+      }
+      return;
+    }
+
+    const user = json.user;
+    if (user.role !== 'OWNER' && user.role !== 'SUPER_ADMIN') {
+      if (errBox && errMsg) {
+        errMsg.innerText = `Access Denied: Account '${email}' role '${user.role}' is not a Nursery Owner!`;
+        errBox.classList.remove('hidden');
+      }
+      return;
+    }
+
+    state.token = json.accessToken;
+    state.currentUser = user;
+    localStorage.setItem('pv_token', json.accessToken);
+    localStorage.setItem('pv_user', JSON.stringify(user));
+
+    showToast(`Authenticated as Nursery Owner (${user.fullName})`);
+    updateHeaderAuthUI();
+    router('admin-dashboard');
+  } catch (err) {
+    console.error('Owner login error:', err);
+    if (errBox && errMsg) {
+      errMsg.innerText = 'Server connection error. Please try again.';
+      errBox.classList.remove('hidden');
+    }
+  }
+}
+
+async function handleOwnerLoginSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('owner-email').value;
+  const password = document.getElementById('owner-password').value;
+  await performOwnerLogin(email, password);
+}
+
+async function performUserLogin(email, password) {
+  const errBox = document.getElementById('user-login-error');
+  const errMsg = document.getElementById('user-login-error-msg');
+  if (errBox) errBox.classList.add('hidden');
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    const json = await res.json();
+    if (!res.ok) {
+      if (errBox && errMsg) {
+        errMsg.innerText = json.detail || 'Invalid email or password';
+        errBox.classList.remove('hidden');
+      }
+      return;
+    }
+
+    state.token = json.accessToken;
+    state.currentUser = json.user;
+    localStorage.setItem('pv_token', json.accessToken);
+    localStorage.setItem('pv_user', JSON.stringify(json.user));
+
+    showToast(`Welcome back, ${json.user.fullName}!`);
+    updateHeaderAuthUI();
+    if (json.user.role === 'OWNER' || json.user.role === 'SUPER_ADMIN') {
+      router('admin-dashboard');
+    } else {
+      router('user-dashboard');
+    }
+  } catch (err) {
+    console.error('User login error:', err);
+    if (errBox && errMsg) {
+      errMsg.innerText = 'Connection error. Please check server.';
+      errBox.classList.remove('hidden');
+    }
+  }
+}
+
+async function handleUserLoginSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('user-email').value;
+  const password = document.getElementById('user-password').value;
+  await performUserLogin(email, password);
+}
+
+async function handleUserRegisterSubmit(e) {
+  e.preventDefault();
+  const fullName = document.getElementById('reg-fullname').value;
+  const email = document.getElementById('reg-email').value;
+  const phone = document.getElementById('reg-phone').value;
+  const password = document.getElementById('reg-password').value;
+
+  const errBox = document.getElementById('user-login-error');
+  const errMsg = document.getElementById('user-login-error-msg');
+  if (errBox) errBox.classList.add('hidden');
+
+  try {
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fullName, email, phone, password, role: 'CUSTOMER' })
+    });
+
+    const json = await res.json();
+    if (!res.ok) {
+      if (errBox && errMsg) {
+        errMsg.innerText = json.detail || 'Registration failed';
+        errBox.classList.remove('hidden');
+      }
+      return;
+    }
+
+    state.token = json.accessToken;
+    state.currentUser = json.user;
+    localStorage.setItem('pv_token', json.accessToken);
+    localStorage.setItem('pv_user', JSON.stringify(json.user));
+
+    showToast(`Account created! Welcome, ${json.user.fullName}!`);
+    updateHeaderAuthUI();
+    router('user-dashboard');
+  } catch (err) {
+    console.error('Registration error:', err);
+    if (errBox && errMsg) {
+      errMsg.innerText = 'Registration error. Server unreachable.';
+      errBox.classList.remove('hidden');
+    }
+  }
+}
+
+function handleLogout(showNotification = true) {
+  state.token = null;
+  state.currentUser = null;
+  localStorage.removeItem('pv_token');
+  localStorage.removeItem('pv_user');
+  updateHeaderAuthUI();
+  if (showNotification) showToast('Logged out successfully.');
+  router('landing');
+}
+
+function renderUserDashboardView(container) {
+  const u = state.currentUser || { fullName: 'Sarah Jenkins', email: 'sarah.j@example.com', role: 'CUSTOMER', rewardPoints: 480, memberStatus: 'Gold Gardener' };
+  container.innerHTML = `
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+      <div class="bg-gradient-to-r from-emerald-800 to-teal-700 text-white p-8 rounded-3xl shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center space-x-2 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-user-leaf"></i>
+            <span>Customer Profile</span>
+          </div>
+          <h1 class="text-3xl font-extrabold font-display">${u.fullName}</h1>
+          <p class="text-xs text-emerald-100">${u.email} • Status: <span class="font-bold text-amber-300">${u.memberStatus || 'Green Member'}</span></p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 text-center">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-emerald-200 block">Reward Points</span>
+          <span class="text-3xl font-extrabold text-amber-300">${u.rewardPoints || 100}</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div onclick="router('journal')" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer space-y-2">
+          <i class="fa-solid fa-book-bookmark text-emerald-600 text-2xl"></i>
+          <h3 class="font-bold text-slate-900">Plant Journal</h3>
+          <p class="text-xs text-slate-500">Track watering schedules and plant adoption notes.</p>
+        </div>
+
+        <div onclick="router('tracking')" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer space-y-2">
+          <i class="fa-solid fa-truck-fast text-teal-600 text-2xl"></i>
+          <h3 class="font-bold text-slate-900">My Orders & Live Delivery</h3>
+          <p class="text-xs text-slate-500">Track express green nursery shipments.</p>
+        </div>
+
+        <div onclick="router('marketplace')" class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer space-y-2">
+          <i class="fa-solid fa-store text-amber-600 text-2xl"></i>
+          <h3 class="font-bold text-slate-900">Shop Marketplace</h3>
+          <p class="text-xs text-slate-500">Explore top quality indoor & agricultural plants.</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+async function renderAdminDashboardView(container) {
+  let analyticsData = null;
+  try {
+    const res = await fetch('/api/analytics', {
+      headers: { 'Authorization': `Bearer ${state.token}` }
+    });
+    if (res.ok) {
+      const json = await res.json();
+      analyticsData = json;
+    }
+  } catch (err) {
+    console.error('Failed to load analytics:', err);
+  }
+
+  const kpis = analyticsData?.kpis || { totalRevenueUSD: 142850, monthlyOrders: 1240, activePlantsTracked: 8920, aiScanAccuracyPct: 98.4, activeGardeners: 5410 };
+
+  container.innerHTML = `
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+      
+      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-amber-950 text-white p-8 rounded-3xl shadow-2xl border border-slate-700/60 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center space-x-2 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Authenticated Nursery Owner Command Center</span>
+          </div>
+          <h1 class="text-3xl font-extrabold font-display">Welcome, ${state.currentUser?.fullName || 'Nursery Owner'}</h1>
+          <p class="text-xs text-slate-300 max-w-xl">
+            Logged in as <span class="text-amber-400 font-bold">${state.currentUser?.email}</span> (${state.currentUser?.role}). Full administrative privilege active.
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="handleLogout()" class="bg-red-500/20 hover:bg-red-500/30 text-red-300 border border-red-500/40 text-xs font-bold px-4 py-2.5 rounded-xl transition-all flex items-center space-x-2">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Owner Logout</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-bold uppercase">
+            <span>Total Revenue</span>
+            <i class="fa-solid fa-dollar-sign text-emerald-500 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-slate-900">$${kpis.totalRevenueUSD.toLocaleString()}</div>
+          <span class="text-[11px] text-emerald-600 font-bold">+18.4% this month</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-bold uppercase">
+            <span>Monthly Orders</span>
+            <i class="fa-solid fa-boxes-packing text-amber-500 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-slate-900">${kpis.monthlyOrders.toLocaleString()}</div>
+          <span class="text-[11px] text-amber-600 font-bold">124 pending fulfillment</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-bold uppercase">
+            <span>Active Plants Tracked</span>
+            <i class="fa-solid fa-leaf text-teal-500 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-slate-900">${kpis.activePlantsTracked.toLocaleString()}</div>
+          <span class="text-[11px] text-teal-600 font-bold">Smart Nursery Sensor Network</span>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+          <div class="flex items-center justify-between text-slate-400 text-xs font-bold uppercase">
+            <span>AI Scan Accuracy</span>
+            <i class="fa-solid fa-microscope text-purple-500 text-lg"></i>
+          </div>
+          <div class="text-2xl font-extrabold text-slate-900">${kpis.aiScanAccuracyPct}%</div>
+          <span class="text-[11px] text-purple-600 font-bold">ResNet-50 Grad-CAM Engine</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-8 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-4">
+          <h3 class="font-extrabold text-lg text-slate-900 flex items-center space-x-2">
+            <i class="fa-solid fa-list-check text-emerald-600"></i>
+            <span>Recent AI Leaf Disease Pathology Scans</span>
+          </h3>
+          <div class="divide-y divide-slate-100 text-xs">
+            ${(analyticsData?.recentAiScans || [
+              {date: "10 mins ago", plant: "Monstera Deliciosa", result: "98% Healthy", status: "Passed"},
+              {date: "24 mins ago", plant: "Rose Bush", result: "Leaf Rust Detected", status: "Treatment Recommended"},
+              {date: "1 hour ago", plant: "Tomato Vine", result: "Nitrogen Deficiency", status: "Fertilizer Suggested"}
+            ]).map(s => `
+              <div class="py-3 flex items-center justify-between">
+                <div>
+                  <span class="font-bold text-slate-800 block text-sm">${s.plant}</span>
+                  <span class="text-slate-400">${s.date} • ${s.result}</span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full font-bold text-[10px] ${s.status === 'Passed' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${s.status}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 bg-slate-900 text-white p-6 rounded-3xl shadow-lg space-y-4">
+          <h3 class="font-extrabold text-base text-amber-400 flex items-center space-x-2">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Security Log & Access</span>
+          </h3>
+          <div class="space-y-3 text-xs text-slate-300">
+            <div class="bg-slate-800/90 p-3 rounded-xl border border-slate-700">
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">Current Role</span>
+              <span class="font-bold text-amber-400">${state.currentUser?.role}</span>
+            </div>
+            <div class="bg-slate-800/90 p-3 rounded-xl border border-slate-700">
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">Auth Mechanism</span>
+              <span class="font-bold text-emerald-400">HMAC-SHA256 JWT Token</span>
+            </div>
+            <div class="bg-slate-800/90 p-3 rounded-xl border border-slate-700">
+              <span class="text-slate-400 text-[10px] uppercase font-bold block">Server Protection</span>
+              <span class="font-bold text-teal-400">RBAC FastAPI Guards Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  `;
 }
 
 function renderStaffPanelView(container) {

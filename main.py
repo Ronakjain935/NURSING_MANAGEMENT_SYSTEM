@@ -215,7 +215,7 @@ def book_consultation(payload: BookingRequest):
     }
 
 @app.get("/api/analytics")
-def get_admin_analytics(user: dict = Depends(get_current_user)):
+def get_admin_analytics(user: dict = Depends(require_roles(["OWNER", "SUPER_ADMIN", "ADMIN"]))):
     return {
         "status": "success",
         "kpis": {

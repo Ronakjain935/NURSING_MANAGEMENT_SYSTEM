@@ -21,6 +21,16 @@ USERS_DB = {
         "rewardPoints": 480,
         "memberStatus": "Gold Gardener"
     },
+    "owner@plantverse.ai": {
+        "userId": "usr_owner_001",
+        "email": "owner@plantverse.ai",
+        "passwordHash": hash_password("owner2026"),
+        "fullName": "Nursery Owner",
+        "role": "OWNER",
+        "phone": "+1 (555) 777-8888",
+        "rewardPoints": 10000,
+        "memberStatus": "Nursery Owner"
+    },
     "admin@plantverse.ai": {
         "userId": "usr_admin_001",
         "email": "admin@plantverse.ai",
@@ -33,7 +43,7 @@ USERS_DB = {
     }
 }
 
-@app_router_register := router.post("/register", response_model=TokenResponse)
+@router.post("/register", response_model=TokenResponse)
 def register_user(payload: UserRegister):
     if payload.email in USERS_DB:
         raise HTTPException(status_code=400, detail="User email already registered")
