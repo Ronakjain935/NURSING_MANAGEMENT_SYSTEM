@@ -1,0 +1,128 @@
+/*
+  PlantVerse AI v3.0 - Luxury Nature Glassmorphism & Agronomy Palette
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  
+  --color-brand-950: #022c22;
+  --color-brand-900: #064e3b;
+  --color-brand-800: #065f46;
+  --color-brand-700: #047857;
+  --color-brand-600: #059669;
+  --color-brand-500: #10b981;
+  --color-brand-400: #34d399;
+  --color-brand-100: #d1fae5;
+  --color-brand-50: #ecfdf5;
+  
+  --color-gold-600: #d97706;
+  --color-gold-500: #f59e0b;
+  --color-gold-100: #fef3c7;
+  
+  --bg-gradient-hero: linear-gradient(135deg, #022c22 0%, #064e3b 40%, #047857 75%, #065f46 100%);
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --border-glass: rgba(255, 255, 255, 0.4);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: #f6f9f7;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Glassmorphism & Gold Badges */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+}
+
+.glass-dark {
+  background: rgba(2, 44, 34, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.badge-ai {
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.3);
+}
+
+.badge-gold {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+}
+
+.badge-crop {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+/* Leaf Pattern Background */
+.bg-leaf-pattern {
+  background-color: #022c22;
+  background-image: radial-gradient(#10b981 0.8px, transparent 0.8px), radial-gradient(#10b981 0.8px, #022c22 0.8px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6ee7b7;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* NPK Sliders Custom Accent */
+input[type=range].accent-emerald {
+  accent-color: #10b981;
+}
+
+input[type=range].accent-amber {
+  accent-color: #f59e0b;
+}
+
+input[type=range].accent-blue {
+  accent-color: #3b82f6;
+}
+
+/* Print Invoice Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-invoice, #printable-invoice * {
+    visibility: visible;
+  }
+  #printable-invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
