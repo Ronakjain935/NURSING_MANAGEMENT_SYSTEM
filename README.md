@@ -1,6 +1,6 @@
 # PlantVerse AI – Smart Nursery, Plant Care & Intelligent Crop Ecosystem
 
-[![Python](https.img.shields.io/badge/Python-3.14-emerald.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-emerald.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-v0.110.0-009688.svg)](https://fastapi.tiangolo.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C.svg)](https://pytorch.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E.svg)](https://scikit-learn.org/)
@@ -14,43 +14,69 @@
 
 ### 1. 🌾 AI Crop Recommendation & Soil Agronomy System
 - Analyzes soil nutrient ratios: **Nitrogen ($N$), Phosphorus ($P$), Potassium ($K$), $pH$ level, Temperature ($^\circ\text{C}$), Humidity ($\%$), and Rainfall ($\text{mm}$)**.
-- Uses Scikit-Learn distance & feature matrix classification to predict optimal crops (e.g., **Basmati Rice, Highland Arabica Coffee, Cotton, Maize, Watermelon, Tomato, Chickpea, Wheat**) with suitability match scores, yield estimates ($\text{Tons/Hectare}$), and custom fertilizer plans.
+- Uses Scikit-Learn distance & feature matrix classification (Random Forest & Decision Trees) to predict optimal crops (e.g., **Basmati Rice, Highland Arabica Coffee, Cotton, Maize, Watermelon, Tomato, Chickpea, Wheat**) with suitability match scores, yield estimates ($\text{Tons/Hectare}$), and custom fertilizer plans.
 
 ### 2. 🔬 Computer Vision Leaf Pathology Diagnosis with Grad-CAM
 - Accepts leaf photo uploads or test sample selections (Leaf Rust, Powdery Mildew, Spider Mites, Nitrogen Deficiency, Healthy).
 - Generates disease diagnostic reports, severity scores, organic/chemical treatment plans, and an interactive **Grad-CAM (Gradient-Weighted Class Activation Mapping) attention heatmap overlay** visualizing infected spots.
 
-### 3. 🛍️ Smart E-Commerce & Marketplace
+### 3. 🛍️ Smart E-Commerce & Plant Marketplace
 - 30+ plant & crop species spanning Indoor, Outdoor, Agricultural Cash Crops, Spices, Medicinal, Fruit Trees, Succulents, and Bonsai.
 - Features multi-parameter filters (sunlight, pet-safety, price slider), 360-degree plant inspection view simulator, wishlist, and cart drawer.
 
 ### 4. 💳 Razorpay Payment Gateway & PDF Invoice Generator
 - Razorpay payment simulation supporting UPI, GPay, and Credit/Debit cards with promo coupon validation (`PLANTAI15`).
-- Generates official downloadable & printable PDF/HTML invoices.
+- Generates official downloadable & printable PDF/HTML invoices with tax breakdowns.
 
 ### 5. 🚚 Live GPS Order Tracking & Driver OTP Verification
 - Real-time order fulfillment pipeline (Placed $\rightarrow$ Packed $\rightarrow$ Dispatched $\rightarrow$ Out for Delivery $\rightarrow$ Delivered).
 - Interactive driver GPS coordinates map simulation and delivery verification OTP (`4819`).
 
-### 6. 💧 Smart Irrigation & Penman-Monteith Water Engine
+### 6. 🌿 Service Plans & Nursery Owner Query System
+- Flexible nursery maintenance plans (Basic Plant Starter, Smart Garden Maintenance, Commercial Agronomy Suite).
+- Enables customers to place custom plant order queries and allows Nursery Owners to review, update status, and manage inquiry notes.
+
+### 7. 💧 Smart Irrigation & Penman-Monteith Water Engine
 - Meteorological evapotranspiration model calculating daily water requirements ($\text{ml}$) and 7-day watering schedules.
 
-### 7. 📈 AI Biological Growth Timeline Predictor
+### 8. 📈 AI Biological Growth Timeline Predictor
 - Logistic growth curve simulator estimating 12-month height growth ($\text{cm}$) and health indices.
 
-### 8. 📊 Nursery Owner ERP Analytics & Demand Forecasting Dashboard
+### 9. 📊 Nursery Owner ERP Analytics & Demand Forecasting Dashboard
 - Scikit-Learn linear regression model forecasting 6-month unit sales, revenue trends, sales heatmaps, and inventory restocking alerts.
 
-### 9. 🛡️ JWT Security & Role-Based Access Control (RBAC)
+### 10. 🛡️ JWT Security & Role-Based Access Control (RBAC)
 - Password hashing via HMAC-SHA256, signature-verified JWT tokens, and RBAC middleware (`CUSTOMER`, `EXPERT`, `DELIVERY_PARTNER`, `NURSERY_STAFF`, `NURSERY_OWNER`, `SUPER_ADMIN`).
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Backend**: Python 3.14, FastAPI, Uvicorn, Pydantic, HTTP Bearer JWT Security
-- **AI & Machine Learning**: PyTorch, OpenCV, Scikit-Learn, NumPy, Pandas, Pillow
+- **Backend**: Python 3.10+, FastAPI, Uvicorn, Pydantic, HTTP Bearer JWT Security
+- **AI & Data Science**: PyTorch, OpenCV, Scikit-Learn, NumPy, Pandas, Pillow, Jupyter Notebooks
 - **Frontend**: Single Page Application (HTML5, Modern JavaScript ES6+, Tailwind CSS CDN, FontAwesome 6, Chart.js)
+
+---
+
+## 🔬 Data Science & ML Model Training
+
+The project includes custom Jupyter Notebooks and dataset generation tools for interactive EDA, training, and evaluation:
+
+1. **`crope recommendation.ipynb`**:
+   - Comprehensive EDA on soil NPK ratios and climatic factors.
+   - Classification with Random Forest & Decision Tree models.
+   - Confusion matrix, feature importance rankings, and crop predictor function.
+2. **`crop disese.ipynb`**:
+   - Analysis of leaf pathology datasets (severity grades, chlorosis index, affected surface area).
+   - PyTorch ResNet-50 transfer learning workflow visualization.
+   - Pathology diagnostic inference engine and treatment recommendations.
+3. **`generate_ml_assets.py`**:
+   - Automated script generating reproducible CSV datasets (`crop_recommendation_dataset.csv` and `crop_disease_dataset.csv`) and notebook files.
+
+To run or regenerate datasets and notebooks:
+```bash
+python generate_ml_assets.py
+```
 
 ---
 
@@ -92,6 +118,10 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 | **Disease AI** | `POST` | `/api/ai/diagnose` | Leaf pathology scan with Grad-CAM heatmap |
 | **Plants** | `GET` | `/api/plants` | Filtered plant & crop catalog |
 | **Inventory** | `GET` | `/api/plants/inventory/stock` | Nursery stock audit & warehouse rack info |
+| **Plan Orders** | `GET` | `/api/plan-orders/plans` | Nursery maintenance plans catalog |
+| **Plan Orders** | `POST` | `/api/plan-orders/` | Submit custom plan query / order |
+| **Plan Orders** | `GET` | `/api/plan-orders/` | List customer plan orders & queries |
+| **Plan Orders** | `PUT` | `/api/plan-orders/{id}/status` | Owner updates order status & notes |
 | **Orders** | `POST` | `/api/orders/checkout` | Razorpay payment & invoice generation |
 | **Tracking** | `GET` | `/api/orders/{id}/track` | Live delivery driver GPS & OTP |
 | **Analytics** | `GET` | `/api/analytics` | Nursery ERP KPI metrics & demand forecast |
@@ -102,25 +132,31 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
 ```
 nursery_management_system/
-├── main.py                # FastAPI entry point & API routes
-├── ai_engine.py           # Growth, Water & Recommendation ML algorithms
-├── ml_models.py           # PyTorch CV Leaf Scanner & Crop Agronomy Engine
-├── database.py            # Data store for plants, crops, diseases & orders
-├── models.py              # Pydantic data schemas & request models
-├── auth.py                # HMAC-SHA256 password hashing & JWT RBAC security
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
+├── main.py                          # FastAPI entry point & API app initialization
+├── ai_engine.py                     # Growth, Water & Recommendation ML algorithms
+├── ml_models.py                     # PyTorch CV Leaf Scanner & Crop Agronomy Engine
+├── database.py                      # In-memory store for plants, crops, orders & plans
+├── models.py                        # Pydantic data schemas & request models
+├── generate_ml_assets.py            # Dataset & Jupyter notebook generator
+├── crop_recommendation_dataset.csv  # Soil agronomy N-P-K dataset
+├── crop_disease_dataset.csv         # Leaf pathology diagnosis dataset
+├── crope recommendation.ipynb       # Jupyter notebook for Crop Recommendation EDA & ML
+├── crop disese.ipynb                # Jupyter notebook for Crop Disease Pathology & PyTorch
+├── requirements.txt                 # Python dependencies
+├── README.md                        # Project documentation
 ├── routers/
 │   ├── __init__.py
-│   ├── auth_router.py     # Login, Register & Profile endpoints
-│   └── plants_router.py   # Catalog, Categories & Inventory endpoints
+│   ├── auth_router.py               # Login, Register & User profile endpoints
+│   ├── plants_router.py             # Catalog, Categories & Inventory endpoints
+│   └── plan_orders_router.py        # Nursery Service Plans & Owner Query router
 └── static/
-    ├── index.html         # SPA HTML5 layout shell
-    ├── styles.css         # Luxury emerald-gold glassmorphism CSS
-    └── app.js             # Frontend SPA router & views engine
+    ├── index.html                   # SPA HTML5 layout shell
+    ├── styles.css                   # Luxury emerald-gold glassmorphism CSS
+    └── app.js                       # Frontend SPA router, UI views & modal handlers
 ```
 
 ---
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
