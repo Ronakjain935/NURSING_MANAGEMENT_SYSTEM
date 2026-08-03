@@ -9,39 +9,20 @@ from auth import hash_password, verify_password, create_jwt_token, get_current_u
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 
-# In-memory user database
+# In-memory user database (Only created users and Main Admin can log in)
 USERS_DB = {
-    "sarah.j@example.com": {
-        "userId": "usr_sarah_101",
-        "email": "sarah.j@example.com",
-        "passwordHash": hash_password("gardener2026"),
-        "fullName": "Sarah Jenkins",
-        "role": "CUSTOMER",
-        "phone": "+1 (555) 382-9102",
-        "rewardPoints": 480,
-        "memberStatus": "Gold Gardener"
-    },
-    "owner@plantverse.ai": {
-        "userId": "usr_owner_001",
-        "email": "owner@plantverse.ai",
-        "passwordHash": hash_password("owner2026"),
-        "fullName": "Nursery Owner",
-        "role": "OWNER",
-        "phone": "+1 (555) 777-8888",
-        "rewardPoints": 10000,
-        "memberStatus": "Nursery Owner"
-    },
-    "admin@plantverse.ai": {
-        "userId": "usr_admin_001",
-        "email": "admin@plantverse.ai",
-        "passwordHash": hash_password("adminSecret2026"),
-        "fullName": "Super Administrator",
+    "rjainabr@gmail.com": {
+        "userId": "usr_main_admin_001",
+        "email": "rjainabr@gmail.com",
+        "passwordHash": hash_password("8209829945"),
+        "fullName": "Main Admin",
         "role": "SUPER_ADMIN",
-        "phone": "+1 (555) 999-0000",
-        "rewardPoints": 9999,
-        "memberStatus": "Super Admin"
+        "phone": "9461645362",
+        "rewardPoints": 10000,
+        "memberStatus": "Main Super Admin"
     }
 }
+
 
 @router.post("/register", response_model=TokenResponse)
 def register_user(payload: UserRegister):
@@ -113,11 +94,11 @@ def get_me(current_user: dict = Depends(get_current_user)):
     email = current_user.get("email")
     user = USERS_DB.get(email, {
         "userId": current_user.get("userId", "usr_guest"),
-        "fullName": current_user.get("fullName", "Guest Gardener"),
-        "email": email or "guest@plantverse.ai",
+        "fullName": current_user.get("fullName", "User"),
+        "email": email or "",
         "role": current_user.get("role", "CUSTOMER"),
-        "rewardPoints": 250,
-        "memberStatus": "Gardener"
+        "rewardPoints": 100,
+        "memberStatus": "Member"
     })
     return UserProfile(
         id=user["userId"],
@@ -125,9 +106,10 @@ def get_me(current_user: dict = Depends(get_current_user)):
         email=user["email"],
         role=user["role"],
         phone=user.get("phone"),
-        rewardPoints=user.get("rewardPoints", 250),
-        memberStatus=user.get("memberStatus", "Gardener")
+        rewardPoints=user.get("rewardPoints", 100),
+        memberStatus=user.get("memberStatus", "Member")
     )
+
 
 @router.get("/security-policy")
 def get_security_policy():

@@ -73,15 +73,15 @@ def decode_jwt_token(token: str) -> Dict[str, Any]:
 def get_current_user(credentials: Optional[HTTPAuthorizationCredentials] = Security(security)) -> Dict[str, Any]:
     """Dependency injection to fetch current authenticated user from Authorization header."""
     if not credentials:
-        # Fallback default guest user for easy testing
         return {
-            "userId": "usr_guest_101",
-            "email": "sarah.j@example.com",
-            "fullName": "Sarah Jenkins",
-            "role": "CUSTOMER"
+            "userId": "usr_guest_000",
+            "email": "",
+            "fullName": "Guest User",
+            "role": "GUEST"
         }
     token = credentials.credentials
     return decode_jwt_token(token)
+
 
 def require_roles(allowed_roles: List[str]):
     """Decorator dependency to enforce Role-Based Access Control (RBAC)."""

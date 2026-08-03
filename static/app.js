@@ -2631,7 +2631,7 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
                 <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Email Address</label>
                 <div class="relative">
                   <i class="fa-solid fa-envelope absolute left-4 top-3.5 text-slate-500 text-xs"></i>
-                  <input type="email" id="user-email" required value="sarah.j@example.com" 
+                  <input type="email" id="user-email" required placeholder="Enter your email address" 
                     class="w-full pl-10 pr-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-emerald-500">
                 </div>
               </div>
@@ -2640,7 +2640,7 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
                 <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Password</label>
                 <div class="relative">
                   <i class="fa-solid fa-lock absolute left-4 top-3.5 text-slate-500 text-xs"></i>
-                  <input type="password" id="user-password" required value="gardener2026" 
+                  <input type="password" id="user-password" required placeholder="••••••••" 
                     class="w-full pl-10 pr-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-emerald-500">
                 </div>
               </div>
@@ -2679,11 +2679,8 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
               </button>
             </form>
 
-            <div class="pt-3 border-t border-slate-800/80">
-              <button onclick="performUserLogin('sarah.j@example.com', 'gardener2026')" class="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center space-x-2">
-                <i class="fa-solid fa-user-check text-emerald-400"></i>
-                <span>Instant Demo Customer (Sarah Jenkins)</span>
-              </button>
+            <div class="pt-3 border-t border-slate-800/80 text-center">
+              <p class="text-xs text-slate-400"><i class="fa-solid fa-lock text-emerald-400 mr-1"></i> Only registered users can log in. Need an account? Click <strong class="text-emerald-300 cursor-pointer" onclick="switchUserAuthTab('register')">Create Account</strong>.</p>
             </div>
           </div>
 
@@ -2712,7 +2709,7 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
                 <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Owner Email Address</label>
                 <div class="relative">
                   <i class="fa-solid fa-envelope absolute left-4 top-3.5 text-slate-500 text-xs"></i>
-                  <input type="email" id="owner-email" required value="owner@plantverse.ai" 
+                  <input type="email" id="owner-email" required placeholder="rjainabr@gmail.com" 
                     class="w-full pl-10 pr-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-amber-500">
                 </div>
               </div>
@@ -2721,7 +2718,7 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
                 <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Owner Password</label>
                 <div class="relative">
                   <i class="fa-solid fa-lock absolute left-4 top-3.5 text-slate-500 text-xs"></i>
-                  <input type="password" id="owner-password" required value="owner2026" 
+                  <input type="password" id="owner-password" required placeholder="••••••••" 
                     class="w-full pl-10 pr-4 py-3 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-amber-500">
                 </div>
               </div>
@@ -2732,17 +2729,8 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
               </button>
             </form>
 
-            <div class="pt-3 border-t border-slate-800/80">
-              <div class="grid grid-cols-2 gap-2">
-                <button onclick="performOwnerLogin('owner@plantverse.ai', 'owner2026')" class="bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-bold py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-1.5">
-                  <i class="fa-solid fa-crown text-amber-400"></i>
-                  <span>Nursery Owner</span>
-                </button>
-                <button onclick="performOwnerLogin('admin@plantverse.ai', 'adminSecret2026')" class="bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 text-xs font-bold py-2.5 px-3 rounded-xl transition-all flex items-center justify-center space-x-1.5">
-                  <i class="fa-solid fa-shield-halved text-teal-400"></i>
-                  <span>Super Admin</span>
-                </button>
-              </div>
+            <div class="pt-3 border-t border-slate-800/80 text-center">
+              <p class="text-xs text-amber-300 font-semibold"><i class="fa-solid fa-crown mr-1 text-amber-400"></i> Main Admin User ID: <strong>rjainabr@gmail.com</strong></p>
             </div>
           </div>
 
@@ -2903,7 +2891,7 @@ async function performOwnerLogin(email, password) {
     }
 
     const user = json.user;
-    if (user.role !== 'OWNER' && user.role !== 'SUPER_ADMIN') {
+    if (user.role !== 'OWNER' && user.role !== 'SUPER_ADMIN' && user.role !== 'ADMIN') {
       if (errBox && errMsg) {
         errMsg.innerText = `Access Denied: Account '${email}' role '${user.role}' is not a Nursery Owner!`;
         errBox.classList.remove('hidden');
