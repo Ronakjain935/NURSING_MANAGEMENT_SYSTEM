@@ -32,41 +32,39 @@
       </div>
 
       <!-- Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+      <nav class="hidden lg:flex items-center space-x-6 text-xs sm:text-sm font-semibold text-slate-600">
         <button id="nav-landing" onclick="router('landing')" class="nav-link hover:text-emerald-600 transition-colors">Home</button>
-        <button id="nav-crop-ai" onclick="router('crop-ai')" class="nav-link text-amber-700 font-bold flex items-center space-x-1">
+        <button id="nav-marketplace" onclick="router('marketplace')" class="nav-link hover:text-emerald-600 transition-colors">Marketplace</button>
+        <button id="nav-crop-ai" onclick="router('crop-ai')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
           <i class="fa-solid fa-wheat-field text-amber-500"></i>
           <span>AI Crop Finder</span>
         </button>
-        <button id="nav-marketplace" onclick="router('marketplace')" class="nav-link hover:text-emerald-600 transition-colors">Marketplace</button>
-        <button id="nav-ai-scan" onclick="router('ai-scan')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1">
+        <button id="nav-ai-scan" onclick="router('ai-scan')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
           <i class="fa-solid fa-camera-viewfinder text-emerald-500"></i>
-          <span>AI Disease Scan</span>
+          <span>AI Scan</span>
         </button>
-        <button id="nav-ai-bot" onclick="router('ai-bot')" class="nav-link hover:text-emerald-600 transition-colors">AI Care Bot</button>
-        <button id="nav-growth-predictor" onclick="router('growth-predictor')" class="nav-link hover:text-emerald-600 transition-colors">Growth Predictor</button>
-        <button id="nav-watering-calc" onclick="router('watering-calc')" class="nav-link hover:text-emerald-600 transition-colors">Smart Water</button>
-        <button id="nav-journal" onclick="router('journal')" class="nav-link hover:text-emerald-600 transition-colors">Plant Journal</button>
+        <button id="nav-watering-calc" onclick="router('watering-calc')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
+          <i class="fa-solid fa-droplet text-blue-500"></i>
+          <span>Water Alarm</span>
+        </button>
+        <button id="nav-ai-bot" onclick="router('ai-bot')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
+          <i class="fa-solid fa-robot text-teal-500"></i>
+          <span>AI Assistant</span>
+        </button>
       </nav>
 
-      <!-- Right Action Buttons: Owner Login, User Login, Cart, User Badge -->
-      <div class="flex items-center space-x-2.5">
-        <button onclick="router('cart')" title="Shopping Cart" class="relative w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 hover:text-emerald-600 hover:bg-slate-200 transition-all">
+      <!-- Right Action Controls -->
+      <div class="flex items-center space-x-3">
+        <button onclick="router('cart')" title="Shopping Cart" class="relative w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 hover:text-emerald-600 hover:bg-slate-200 transition-all shadow-sm">
           <i class="fa-solid fa-bag-shopping text-base"></i>
           <span id="cart-count-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-extrabold flex items-center justify-center hidden">0</span>
         </button>
 
-        <!-- Dynamic Auth Container rendered by app.js -->
+        <!-- Dynamic Auth Container -->
         <div id="auth-header-container" class="flex items-center space-x-2">
-          <!-- Default fallback buttons before JS hydrator runs -->
-          <button id="btn-header-user-login" onclick="router('user-login')" class="hidden sm:flex items-center space-x-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold px-3.5 py-2.5 rounded-xl border border-emerald-200 transition-all">
-            <i class="fa-solid fa-user text-emerald-600"></i>
-            <span>User Login</span>
-          </button>
-          
-          <button id="btn-header-owner-login" onclick="router('owner-login')" class="hidden sm:flex items-center space-x-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-md transition-all">
-            <i class="fa-solid fa-user-shield text-amber-400"></i>
-            <span>Owner Login</span>
+          <button id="btn-header-auth-portal" onclick="router('user-login')" class="flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-extrabold px-4 py-2 rounded-xl shadow-md transition-all">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Sign In</span>
           </button>
         </div>
       </div>

@@ -20,6 +20,34 @@ CATEGORIES = [
 
 PLANTS = [
     {
+        "id": "money-plant-pothos",
+        "name": "Feng Shui Money Plant (Golden Pothos / Money Tree)",
+        "scientificName": "Epipremnum aureum",
+        "category": "indoor",
+        "price": 19.99,
+        "originalPrice": 24.99,
+        "rating": 4.98,
+        "reviewsCount": 350,
+        "inStock": True,
+        "stockQuantity": 120,
+        "image": "https://images.unsplash.com/photo-1596724806653-f72b2272e505?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1596724806653-f72b2272e505?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": False,
+        "careDifficulty": "Beginner",
+        "sunlight": "Low to Bright Indirect Light",
+        "waterFrequency": "Every 7-10 Days",
+        "humidity": "40% - 70%",
+        "temperature": "15°C - 30°C",
+        "soilType": "Well-draining aerated potting mix",
+        "airPurificationScore": 99,
+        "growthSpeed": "Fast Vine",
+        "maxHeight": "2.0 meters trailing",
+        "repottingSchedule": "Every 18 months",
+        "description": "Famous Feng Shui Money Plant symbolizing prosperity, good fortune, and financial wealth. Extremely easy to care for and purifies formaldehyde & benzene from air.",
+        "aiHealthTip": "Can grow in soil or water bottles! Trim long vines to encourage full leafy growth.",
+        "tags": ["Money Plant", "Money Plan", "Money Tree", "Good Luck", "Feng Shui", "Air Purifier", "Indoor", "Low Maintenance", "Golden Pothos", "Devil's Ivy"]
+    },
+    {
         "id": "monstera-deliciosa",
         "name": "Monstera Deliciosa (Swiss Cheese Plant)",
         "scientificName": "Monstera deliciosa",
@@ -43,9 +71,9 @@ PLANTS = [
         "growthSpeed": "Fast",
         "maxHeight": "2.5 meters",
         "repottingSchedule": "Every 18 months",
-        "description": "Known for iconic split leaves, Monstera Deliciosa is a tropical stunner that purifies indoor air efficiently.",
+        "description": "Iconic split-leaf tropical foliage plant known for purifying indoor air efficiently and enhancing aesthetic interior spaces.",
         "aiHealthTip": "Ensure top 2 inches of soil are dry before watering. Wipe large leaves monthly.",
-        "tags": ["Bestseller", "Air Purifier", "Tropical", "Easy Care"]
+        "tags": ["Bestseller", "Air Purifier", "Tropical", "Easy Care", "Indoor"]
     },
     {
         "id": "commercial-rice-crop",
@@ -71,9 +99,37 @@ PLANTS = [
         "growthSpeed": "Fast (120 Days)",
         "maxHeight": "1.2 meters",
         "repottingSchedule": "Single Season Harvest",
-        "description": "Aromatic long-grain Basmati Rice crop engineered for maximum yield per acre and disease resistance.",
+        "description": "Aromatic long-grain Basmati Rice crop engineered for maximum yield per acre, disease resistance, and high NPK efficiency.",
         "aiHealthTip": "Maintain standing water of 2-5 cm during tillering stage to boost grain density.",
-        "tags": ["Agricultural Crop", "High Yield", "Essential Staple"]
+        "tags": ["Agricultural Crop", "High Yield", "Essential Staple", "Cash Crop", "Farm"]
+    },
+    {
+        "id": "durum-wheat-crop",
+        "name": "Golden Durum Wheat Crop (High-Protein Grain)",
+        "scientificName": "Triticum aestivum",
+        "category": "cash-crops",
+        "price": 10.99,
+        "originalPrice": 14.50,
+        "rating": 4.91,
+        "reviewsCount": 245,
+        "inStock": True,
+        "stockQuantity": 600,
+        "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": True,
+        "careDifficulty": "Easy",
+        "sunlight": "Full Outdoor Direct Sun",
+        "waterFrequency": "Moderate (4-5 Irrigations)",
+        "humidity": "50% - 70%",
+        "temperature": "15°C - 25°C",
+        "soilType": "Well-drained fertile silt loam",
+        "airPurificationScore": 80,
+        "growthSpeed": "110 Days Harvest",
+        "maxHeight": "1.0 meters",
+        "repottingSchedule": "Single Season Crop",
+        "description": "Premier agricultural grain crop with high gluten-protein content and drought resistance for commercial farming.",
+        "aiHealthTip": "Apply basal NPK 20-20-20 fertilizer during sowing and crown root initiation.",
+        "tags": ["Agricultural Crop", "Grain", "Farm Staple", "High Yield", "Cash Crop"]
     },
     {
         "id": "arabica-coffee-plant",
@@ -101,7 +157,7 @@ PLANTS = [
         "repottingSchedule": "Every 24 months",
         "description": "Produces white fragrant star flowers followed by rich red coffee cherries packed with caffeine.",
         "aiHealthTip": "Thrives under shade trees. Keep soil consistently moist but never waterlogged.",
-        "tags": ["Cash Crop", "Gourmet Coffee", "Fragrant Flowers"]
+        "tags": ["Cash Crop", "Gourmet Coffee", "Fragrant Flowers", "Plantation"]
     },
     {
         "id": "golden-malabar-cardamom",
@@ -129,7 +185,63 @@ PLANTS = [
         "repottingSchedule": "Every 18 months",
         "description": "Known as the Queen of Spices, yielding highly prized aromatic green pods for culinary and therapeutic use.",
         "aiHealthTip": "Requires high ambient humidity and misting in warm climates.",
-        "tags": ["Queen of Spices", "Aromatic", "Culinary Grade"]
+        "tags": ["Queen of Spices", "Aromatic", "Culinary Grade", "Spices"]
+    },
+    {
+        "id": "black-pepper-vine",
+        "name": "Malabar Black Gold Pepper Vine",
+        "scientificName": "Piper nigrum",
+        "category": "spices",
+        "price": 18.50,
+        "originalPrice": 24.00,
+        "rating": 4.89,
+        "reviewsCount": 78,
+        "inStock": True,
+        "stockQuantity": 50,
+        "image": "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": True,
+        "careDifficulty": "Easy",
+        "sunlight": "Dappled Sunlight / Trellis Shade",
+        "waterFrequency": "Every 5-7 Days",
+        "humidity": "70% - 90%",
+        "temperature": "20°C - 35°C",
+        "soilType": "Well-drained organic forest loam",
+        "airPurificationScore": 86,
+        "growthSpeed": "Fast Climbing",
+        "maxHeight": "3.0 meters trellis",
+        "repottingSchedule": "Every 24 months",
+        "description": "The King of Spices! Climbing vine producing berries harvested for black, white, and green pepper.",
+        "aiHealthTip": "Provide sturdy wooden trellis support and apply organic neem cake manure twice a year.",
+        "tags": ["King of Spices", "Climber", "Culinary", "High Demand"]
+    },
+    {
+        "id": "golden-turmeric-plant",
+        "name": "Organic Golden Turmeric Rhizome Plant",
+        "scientificName": "Curcuma longa",
+        "category": "spices",
+        "price": 16.00,
+        "originalPrice": 21.00,
+        "rating": 4.93,
+        "reviewsCount": 115,
+        "inStock": True,
+        "stockQuantity": 80,
+        "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": True,
+        "careDifficulty": "Easy",
+        "sunlight": "Partial Sun to Light Shade",
+        "waterFrequency": "Every 4-6 Days",
+        "humidity": "65% - 85%",
+        "temperature": "20°C - 35°C",
+        "soilType": "Loose friable sandy loam",
+        "airPurificationScore": 92,
+        "growthSpeed": "Medium (9 Months)",
+        "maxHeight": "1.0 meters",
+        "repottingSchedule": "Harvest Season",
+        "description": "Golden rhizome spice rich in Curcumin anti-inflammatory compound. Excellent culinary & medicinal herb.",
+        "aiHealthTip": "Keep soil loose to allow rhizome expansion. Harvest when tropical foliage turns yellow.",
+        "tags": ["Superfood", "Medicinal", "Turmeric", "Curcumin", "Spices"]
     },
     {
         "id": "snake-plant-laurentii",
@@ -157,7 +269,7 @@ PLANTS = [
         "repottingSchedule": "Every 24 months",
         "description": "Nearly indestructible! Sansevieria converts CO2 into oxygen during night hours.",
         "aiHealthTip": "Overwatering is the #1 threat. When in doubt, hold off watering.",
-        "tags": ["Indestructible", "Bedroom Ideal", "Air Purifier"]
+        "tags": ["Indestructible", "Bedroom Ideal", "Air Purifier", "Indoor"]
     },
     {
         "id": "peace-lily-sensation",
@@ -185,7 +297,7 @@ PLANTS = [
         "repottingSchedule": "Every 12 months",
         "description": "Produces elegant white spathe blooms and droops dramatically when thirsty.",
         "aiHealthTip": "If leaves droop slightly, mist with warm water and water thoroughly.",
-        "tags": ["White Flowers", "Air Purifier", "Low Light"]
+        "tags": ["White Flowers", "Air Purifier", "Low Light", "Flowering"]
     },
     {
         "id": "aloe-vera-therapeutic",
@@ -211,9 +323,93 @@ PLANTS = [
         "growthSpeed": "Medium",
         "maxHeight": "0.6 meters",
         "repottingSchedule": "Every 24 months",
-        "description": "Healing succulent rich in soothing gel for minor skin burns and hydration.",
+        "description": "Healing succulent rich in soothing gel for minor skin burns, skincare, and hydration.",
         "aiHealthTip": "Harvest outer mature leaves near base for fresh skin gel.",
-        "tags": ["Medicinal", "Skincare Gel", "Pet Friendly"]
+        "tags": ["Medicinal", "Skincare Gel", "Pet Friendly", "Healing"]
+    },
+    {
+        "id": "holy-basil-tulsi",
+        "name": "Sacred Indian Holy Basil (Tulsi)",
+        "scientificName": "Ocimum sanctum",
+        "category": "medicinal",
+        "price": 14.50,
+        "originalPrice": 18.00,
+        "rating": 4.97,
+        "reviewsCount": 280,
+        "inStock": True,
+        "stockQuantity": 110,
+        "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": True,
+        "careDifficulty": "Easy",
+        "sunlight": "Full Direct Sun (6+ Hours)",
+        "waterFrequency": "Every 2-3 Days",
+        "humidity": "50% - 70%",
+        "temperature": "20°C - 38°C",
+        "soilType": "Rich aerated potting soil",
+        "airPurificationScore": 97,
+        "growthSpeed": "Fast",
+        "maxHeight": "0.75 meters",
+        "repottingSchedule": "Every 12 months",
+        "description": "Venerated adaptogenic herbal plant known for immune boosting tea, essential oils, and antimicrobial properties.",
+        "aiHealthTip": "Pinch off flower spikes to promote dense bushy leaf growth.",
+        "tags": ["Sacred Tulsi", "Immune Booster", "Medicinal Tea", "Ayurvedic"]
+    },
+    {
+        "id": "alphonso-mango-tree",
+        "name": "Alphonso King Mango Grafted Sapling",
+        "scientificName": "Mangifera indica 'Alphonso'",
+        "category": "fruit",
+        "price": 45.00,
+        "originalPrice": 55.00,
+        "rating": 4.95,
+        "reviewsCount": 140,
+        "inStock": True,
+        "stockQuantity": 35,
+        "image": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": True,
+        "careDifficulty": "Moderate",
+        "sunlight": "Full Direct Outdoor Sun",
+        "waterFrequency": "Every 5-7 Days",
+        "humidity": "50% - 75%",
+        "temperature": "22°C - 40°C",
+        "soilType": "Deep well-drained alluvial soil",
+        "airPurificationScore": 89,
+        "growthSpeed": "Medium Tree",
+        "maxHeight": "3.5 meters",
+        "repottingSchedule": "Orchard Planting",
+        "description": "The undisputed King of Mangoes! Grafted dwarf sapling producing ultra-sweet golden saffron mangoes.",
+        "aiHealthTip": "Avoid overwatering during flowering phase to ensure high fruit set ratio.",
+        "tags": ["King of Mangoes", "Sweet Fruit", "Grafted Sapling", "Orchard"]
+    },
+    {
+        "id": "roma-tomato-plant",
+        "name": "Organic Roma Cherry Tomato Plant",
+        "scientificName": "Solanum lycopersicum",
+        "category": "vegetables",
+        "price": 11.99,
+        "originalPrice": 15.00,
+        "rating": 4.92,
+        "reviewsCount": 190,
+        "inStock": True,
+        "stockQuantity": 90,
+        "image": "https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=800&q=80",
+        "images": ["https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=800&q=80"],
+        "isPetFriendly": True,
+        "careDifficulty": "Easy",
+        "sunlight": "Full Direct Outdoor Sun",
+        "waterFrequency": "Every 2 Days",
+        "humidity": "55% - 75%",
+        "temperature": "18°C - 32°C",
+        "soilType": "Organic compost rich loam",
+        "airPurificationScore": 87,
+        "growthSpeed": "Fast (70 Days)",
+        "maxHeight": "1.2 meters",
+        "repottingSchedule": "Single Season",
+        "description": "Prolific producer of sweet red tomatoes packed with lycopene antioxidants. Great for patio gardens.",
+        "aiHealthTip": "Stake early for support and apply Calcium spray to prevent blossom end rot.",
+        "tags": ["Homegrown Produce", "Organic Tomato", "Vegetables", "High Yield"]
     },
     {
         "id": "japanese-juniper-bonsai",
@@ -239,19 +435,21 @@ PLANTS = [
         "growthSpeed": "Slow",
         "maxHeight": "0.35 meters",
         "repottingSchedule": "Every 2-3 years",
-        "description": "Hand-sculpted 7-year-old Juniper Bonsai in a traditional ceramic dish.",
+        "description": "Hand-sculpted 7-year-old Juniper Bonsai in a traditional ceramic dish for mindfulness and peace.",
         "aiHealthTip": "Bonsais prefer outdoor morning sunlight and regular root moisture.",
-        "tags": ["Artisanal", "Bonsai", "Collector Item"]
+        "tags": ["Artisanal", "Bonsai", "Collector Item", "Zen"]
     }
 ]
 
-# Soil & Crop Agronomy Dataset for Machine Learning Training
+# Soil & Crop Agronomy Real-World Dataset for Machine Learning Engine
 CROPS_AGRONOMY_DATA = [
     {"crop": "Rice", "N": 90, "P": 42, "K": 43, "pH": 6.5, "temp": 25.0, "humidity": 80.0, "rainfall": 220.0, "soil": "Loamy/Clay", "yield": "4.5 Tons/Ha", "duration": "120 Days", "fertilizer": "Apply Nitrogen (Urea) at tillering stage"},
     {"crop": "Wheat", "N": 50, "P": 60, "K": 50, "pH": 6.8, "temp": 18.0, "humidity": 60.0, "rainfall": 90.0, "soil": "Loamy", "yield": "3.8 Tons/Ha", "duration": "110 Days", "fertilizer": "Apply NPK (20-20-20) basal dose"},
     {"crop": "Cotton", "N": 120, "P": 45, "K": 60, "pH": 7.2, "temp": 30.0, "humidity": 65.0, "rainfall": 110.0, "soil": "Black Cotton", "yield": "2.2 Tons/Ha", "duration": "160 Days", "fertilizer": "Supplement Potassium & Zinc spray"},
     {"crop": "Coffee", "N": 100, "P": 35, "K": 80, "pH": 6.0, "temp": 22.0, "humidity": 75.0, "rainfall": 180.0, "soil": "Volcanic Acidic", "yield": "1.8 Tons/Ha", "duration": "Perennial", "fertilizer": "Organic composted poultry manure"},
     {"crop": "Maize (Corn)", "N": 80, "P": 50, "K": 40, "pH": 6.4, "temp": 24.0, "humidity": 65.0, "rainfall": 100.0, "soil": "Silt Loam", "yield": "5.2 Tons/Ha", "duration": "95 Days", "fertilizer": "Top dress with Ammonium Nitrate"},
+    {"crop": "Sugarcane", "N": 150, "P": 60, "K": 90, "pH": 6.8, "temp": 28.0, "humidity": 75.0, "rainfall": 200.0, "soil": "Deep Alluvial Loam", "yield": "70.0 Tons/Ha", "duration": "360 Days", "fertilizer": "Apply Nitrogen split doses & Potassium"},
+    {"crop": "Tea", "N": 110, "P": 40, "K": 70, "pH": 5.2, "temp": 20.0, "humidity": 85.0, "rainfall": 250.0, "soil": "Acidic Mountain Soil", "yield": "2.1 Tons/Ha", "duration": "Perennial", "fertilizer": "Ammonium Sulphate & Organic Mulch"},
     {"crop": "Watermelon", "N": 40, "P": 55, "K": 55, "pH": 6.2, "temp": 28.0, "humidity": 55.0, "rainfall": 60.0, "soil": "Sandy Loam", "yield": "25.0 Tons/Ha", "duration": "80 Days", "fertilizer": "High Potassium fertigation for sweetness"},
     {"crop": "Tomato", "N": 70, "P": 65, "K": 75, "pH": 6.5, "temp": 23.0, "humidity": 70.0, "rainfall": 80.0, "soil": "Rich Organic Loam", "yield": "18.0 Tons/Ha", "duration": "75 Days", "fertilizer": "Calcium Nitrate to prevent blossom end rot"},
     {"crop": "Chickpea", "N": 20, "P": 60, "K": 30, "pH": 7.0, "temp": 20.0, "humidity": 50.0, "rainfall": 45.0, "soil": "Sandy Clay", "yield": "1.6 Tons/Ha", "duration": "100 Days", "fertilizer": "Inoculate with Rhizobium bio-fertilizer"}
@@ -351,3 +549,106 @@ EXPERTS = [
         "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
     }
 ]
+
+NURSERY_PLANS = [
+    {
+        "id": "basic-care",
+        "title": "Basic Home Nursery Care",
+        "price": 19.99,
+        "billingCycle": "Monthly",
+        "description": "Essential automated smart watering recommendations, soil health tracking, and 2 AI disease scans monthly.",
+        "features": [
+            "Monthly Soil Health Inspection",
+            "Smart Watering Schedule Alerts",
+            "2 AI Leaf Disease Scans / mo",
+            "Digital Plant Journal Access",
+            "Email Support"
+        ],
+        "badge": "Starter",
+        "isPopular": False
+    },
+    {
+        "id": "pro-agronomy",
+        "title": "Pro Agronomy & Crop Plan",
+        "price": 49.99,
+        "billingCycle": "Monthly",
+        "description": "Comprehensive N-P-K soil nutrient analysis, optimal agricultural crop yield forecasts, and monthly expert horticulturist sessions.",
+        "features": [
+            "Everything in Basic Care",
+            "Soil N-P-K Agronomy AI Analysis",
+            "High-Yield Crop & Fertilizer Plan",
+            "Unlimited AI Disease Scans",
+            "1-on-1 Monthly Horticulturist Call",
+            "Priority Nursery Express Dispatch"
+        ],
+        "badge": "Most Popular",
+        "isPopular": True
+    },
+    {
+        "id": "premium-commercial",
+        "title": "Premium Commercial Farm & Nursery Maintenance",
+        "price": 149.99,
+        "billingCycle": "Monthly",
+        "description": "Dedicated agronomist assigned to your greenhouse or farm, automated climate IoT monitoring alerts, and bulk fertilizer delivery.",
+        "features": [
+            "Everything in Pro Agronomy",
+            "Dedicated Personal Agronomist",
+            "24/7 Emergency Plant Doctor Hotline",
+            "Custom Organic Fertilizer Blend Supply",
+            "On-site Farm Sensor Integration",
+            "15% Discount on Marketplace Stock"
+        ],
+        "badge": "Enterprise",
+        "isPopular": False
+    },
+    {
+        "id": "custom-farm-query",
+        "title": "Custom Land & Farm Consultation Query",
+        "price": 299.99,
+        "billingCycle": "One-Time Query",
+        "description": "Full-scale agricultural land inspection query, drip irrigation blueprinting, and greenhouse automation design.",
+        "features": [
+            "On-Site Agronomist Visit & Soil Audit",
+            "Drip Irrigation & Solar Micro-climate Blueprint",
+            "Direct Owner & Expert Panel Review",
+            "Commercial Nursery Bulk Order Discount",
+            "Comprehensive Agronomy Report"
+        ],
+        "badge": "Specialist Query",
+        "isPopular": False
+    }
+]
+
+PLAN_ORDERS = [
+    {
+        "id": "PLAN-ORD-1001",
+        "planId": "pro-agronomy",
+        "planTitle": "Pro Agronomy & Crop Plan",
+        "price": 49.99,
+        "billingCycle": "Monthly",
+        "customerName": "Sarah Jenkins",
+        "customerEmail": "sarah.j@example.com",
+        "customerPhone": "+1 (555) 382-9102",
+        "address": "452 Willow Creek Rd, San Francisco, CA",
+        "queryNotes": "Requesting Soil N-P-K testing kit and consultation for indoor organic tomato and Monstera growth optimization.",
+        "status": "Pending",
+        "createdAt": "2026-08-02 10:15 AM",
+        "ownerNote": "Received! Scheduled initial agronomist review call for Tuesday."
+    },
+    {
+        "id": "PLAN-ORD-1002",
+        "planId": "basic-care",
+        "planTitle": "Basic Home Nursery Care",
+        "price": 19.99,
+        "billingCycle": "Monthly",
+        "customerName": "Michael Scott",
+        "customerEmail": "m.scott@example.com",
+        "customerPhone": "+1 (555) 204-8831",
+        "address": "172 Scranton Industrial Pkwy, Scranton, PA",
+        "queryNotes": "Need automated watering schedules for office succulents and fiddle leaf fig.",
+        "status": "Approved",
+        "createdAt": "2026-08-01 02:45 PM",
+        "ownerNote": "Subscription activated. Welcome to PlantVerse AI Care!"
+    }
+]
+

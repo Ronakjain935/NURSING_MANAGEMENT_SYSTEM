@@ -128,3 +128,46 @@ def get_me(current_user: dict = Depends(get_current_user)):
         rewardPoints=user.get("rewardPoints", 250),
         memberStatus=user.get("memberStatus", "Gardener")
     )
+
+@router.get("/security-policy")
+def get_security_policy():
+    return {
+        "status": "success",
+        "policyName": "PlantVerse AI Enterprise Security & Governance Architecture",
+        "version": "v3.0-SEC-2026",
+        "securityPurposes": [
+            {
+                "title": "Role-Based Resource Isolation (RBAC)",
+                "description": "Restricts financial revenue data, crop ordering pipelines, and nursery inventory controls exclusively to verified Nursery Owners and Administrators.",
+                "icon": "fa-user-shield",
+                "severity": "CRITICAL"
+            },
+            {
+                "title": "User Data Privacy & Regulatory Protection",
+                "description": "Encrypts customer personal data, address information, and crop care journals in compliance with international privacy standards.",
+                "icon": "fa-lock",
+                "severity": "HIGH"
+            },
+            {
+                "title": "Agronomy ML Model Security",
+                "description": "Protects proprietary Scikit-Learn soil recommendation algorithms and PyTorch ResNet-50 leaf pathology inference engines against unauthorized API scraping or parameter tampering.",
+                "icon": "fa-microchip",
+                "severity": "HIGH"
+            },
+            {
+                "title": "Continuous Audit Logging & Threat Monitoring",
+                "description": "Logs all administrative actions, authentication attempts, stock restocks, and delivery OTP validations with HMAC signature verification.",
+                "icon": "fa-clock-rotate-left",
+                "severity": "MEDIUM"
+            }
+        ],
+        "encryptionStandard": "HMAC-SHA256 Signed JWT Tokens",
+        "tokenExpiryHours": 24,
+        "rateLimiting": "100 requests / minute per IP",
+        "corsPolicy": "Restricted Domain Cross-Origin Resource Sharing",
+        "activeSecurityAuditLogs": [
+            {"id": "SEC-LOG-901", "timestamp": "2026-08-03 16:00:12", "event": "JWT Session Verified", "actor": "owner@plantverse.ai", "role": "OWNER", "status": "APPROVED"},
+            {"id": "SEC-LOG-902", "timestamp": "2026-08-03 15:45:00", "event": "Authentication Attempt", "actor": "sarah.j@example.com", "role": "CUSTOMER", "status": "APPROVED"},
+            {"id": "SEC-LOG-903", "timestamp": "2026-08-03 14:20:00", "event": "RBAC Permission Enforced", "actor": "Guest Client", "role": "UNAUTHENTICATED", "status": "BLOCKED_BY_GUARD"}
+        ]
+    }

@@ -27,10 +27,17 @@ def list_plants(
         filtered = [p for p in filtered if p["category"] == category]
 
     if search:
-        s = search.lower()
+        s = search.lower().strip()
         filtered = [
             p for p in filtered 
-            if s in p["name"].lower() or s in p["scientificName"].lower() or s in p["category"].lower() or any(s in t.lower() for t in p["tags"])
+            if s in p["name"].lower() 
+            or s in p["scientificName"].lower() 
+            or s in p["category"].lower() 
+            or s in p.get("soilType", "").lower()
+            or s in p.get("description", "").lower()
+            or s in p.get("careDifficulty", "").lower()
+            or s in p.get("aiHealthTip", "").lower()
+            or any(s in t.lower() for t in p.get("tags", []))
         ]
 
     if sunlight and sunlight != "all":

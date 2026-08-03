@@ -1,0 +1,601 @@
+sample_id,crop_name,disease_name,pathogen_type,severity_grade,affected_leaf_area_pct,leaf_spot_count,chlorosis_index,ai_confidence_pct,urgency_level,recommended_treatment
+IMG-2026-0001,Tulsi,Cercospora Leaf Spot,fungal,Mild,20.13,85,0.46,89.56,Low,Organic Neem Leaf Extract
+IMG-2026-0002,Tomato,Late Blight,fungal,Severe,61.4,154,0.36,92.73,Critical,Copper Oxychloride
+IMG-2026-0003,Tomato,Early Blight,fungal,Mild,18.84,74,0.63,88.3,High,Mancozeb 75% WP
+IMG-2026-0004,Wheat,Leaf Rust,fungal,Severe,64.27,154,0.57,93.03,High,Propiconazole 25% EC
+IMG-2026-0005,Rose,Powdery Mildew,fungal,Severe,71.09,16,0.79,89.79,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0006,Citrus,Bacterial Canker,bacterial,Moderate,36.84,54,0.44,96.55,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0007,Tomato,Late Blight,fungal,Mild,18.77,39,0.53,91.85,Critical,Copper Oxychloride
+IMG-2026-0008,Rose,Powdery Mildew,fungal,Severe,70.92,132,0.65,98.9,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0009,Citrus,Bacterial Canker,bacterial,Mild,17.75,90,0.84,94.93,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0010,Sugarcane,Red Rot,fungal,Moderate,38.4,64,0.76,88.51,Critical,Carbendazim 50% WP
+IMG-2026-0011,Wheat,Leaf Rust,fungal,Severe,68.43,35,0.86,97.7,High,Propiconazole 25% EC
+IMG-2026-0012,Citrus,Bacterial Canker,bacterial,Moderate,32.29,177,0.84,89.82,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0013,Monstera,Spider Mites,pest,Moderate,27.29,83,0.76,95.66,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0014,Tomato,Late Blight,fungal,Severe,56.47,58,0.65,90.74,Critical,Copper Oxychloride
+IMG-2026-0015,Rice,Bacterial Leaf Blight,bacterial,Moderate,39.7,178,0.75,90.46,High,Copper Hydroxide
+IMG-2026-0016,Monstera,Spider Mites,pest,Severe,73.53,29,0.45,88.36,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0017,Monstera,Spider Mites,pest,Moderate,41.29,31,0.44,98.56,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0018,Plant,Healthy Leaf,none,Healthy,1.08,0,0.13,97.81,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0019,Plant,Healthy Leaf,none,Healthy,0.96,0,0.05,97.31,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0020,Apple,Apple Scab,fungal,Severe,51.35,164,0.58,94.54,Medium,Captan 50% WP
+IMG-2026-0021,Monstera,Spider Mites,pest,Moderate,28.01,50,0.63,89.02,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0022,Tomato,Early Blight,fungal,Severe,74.86,54,0.71,96.87,High,Mancozeb 75% WP
+IMG-2026-0023,Citrus,Bacterial Canker,bacterial,Severe,55.54,113,0.55,99.16,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0024,Apple,Apple Scab,fungal,Moderate,30.35,156,0.86,88.13,Medium,Captan 50% WP
+IMG-2026-0025,Corn,Northern Leaf Blight,fungal,Mild,20.36,152,0.79,96.61,High,Azoxystrobin
+IMG-2026-0026,Monstera,Spider Mites,pest,Mild,20.14,126,0.4,88.04,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0027,Corn,Northern Leaf Blight,fungal,Severe,75.94,82,0.93,96.53,High,Azoxystrobin
+IMG-2026-0028,Apple,Apple Scab,fungal,Severe,78.62,175,0.49,95.16,Medium,Captan 50% WP
+IMG-2026-0029,Grape,Black Rot,fungal,Moderate,26.52,110,0.8,94.04,High,Myclobutanil
+IMG-2026-0030,Cotton,Bacterial Blight,bacterial,Severe,79.34,15,0.69,93.47,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0031,Tomato,Late Blight,fungal,Severe,79.82,93,0.46,90.7,Critical,Copper Oxychloride
+IMG-2026-0032,Grape,Black Rot,fungal,Severe,81.13,36,0.78,97.14,High,Myclobutanil
+IMG-2026-0033,Cotton,Bacterial Blight,bacterial,Severe,50.89,47,0.38,93.32,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0034,Apple,Apple Scab,fungal,Mild,24.05,150,0.87,92.74,Medium,Captan 50% WP
+IMG-2026-0035,Wheat,Leaf Rust,fungal,Severe,79.81,66,0.76,92.47,High,Propiconazole 25% EC
+IMG-2026-0036,Tulsi,Cercospora Leaf Spot,fungal,Severe,59.44,127,0.88,93.06,Low,Organic Neem Leaf Extract
+IMG-2026-0037,Wheat,Leaf Rust,fungal,Moderate,28.4,101,0.31,94.2,High,Propiconazole 25% EC
+IMG-2026-0038,Grape,Black Rot,fungal,Moderate,28.08,33,0.76,88.66,High,Myclobutanil
+IMG-2026-0039,Tomato,Late Blight,fungal,Severe,78.1,99,0.35,90.67,Critical,Copper Oxychloride
+IMG-2026-0040,Tulsi,Cercospora Leaf Spot,fungal,Moderate,47.44,153,0.39,98.48,Low,Organic Neem Leaf Extract
+IMG-2026-0041,Grape,Black Rot,fungal,Severe,54.06,77,0.81,97.04,High,Myclobutanil
+IMG-2026-0042,Wheat,Leaf Rust,fungal,Mild,18.89,125,0.53,92.6,High,Propiconazole 25% EC
+IMG-2026-0043,Sugarcane,Red Rot,fungal,Severe,65.22,180,0.36,92.51,Critical,Carbendazim 50% WP
+IMG-2026-0044,Monstera,Spider Mites,pest,Severe,70.44,42,0.46,90.13,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0045,Rice,Bacterial Leaf Blight,bacterial,Mild,22.23,61,0.48,90.8,High,Copper Hydroxide
+IMG-2026-0046,Plant,Healthy Leaf,none,Healthy,0.11,2,0.02,98.65,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0047,Apple,Apple Scab,fungal,Severe,73.03,38,0.9,97.51,Medium,Captan 50% WP
+IMG-2026-0048,Potato,Late Blight,fungal,Moderate,41.67,138,0.44,92.49,Critical,Cymoxanil + Mancozeb
+IMG-2026-0049,Tomato,Early Blight,fungal,Mild,24.02,15,0.94,90.97,High,Mancozeb 75% WP
+IMG-2026-0050,Cotton,Bacterial Blight,bacterial,Severe,69.31,88,0.57,98.72,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0051,Cotton,Bacterial Blight,bacterial,Severe,52.57,139,0.4,91.32,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0052,Tomato,Early Blight,fungal,Severe,54.28,153,0.34,91.51,High,Mancozeb 75% WP
+IMG-2026-0053,Tomato,Early Blight,fungal,Severe,54.64,143,0.9,93.95,High,Mancozeb 75% WP
+IMG-2026-0054,Tomato,Early Blight,fungal,Severe,82.14,35,0.85,88.77,High,Mancozeb 75% WP
+IMG-2026-0055,Tomato,Late Blight,fungal,Severe,61.29,75,0.56,98.55,Critical,Copper Oxychloride
+IMG-2026-0056,Grape,Black Rot,fungal,Moderate,29.97,167,0.33,88.92,High,Myclobutanil
+IMG-2026-0057,Tulsi,Cercospora Leaf Spot,fungal,Severe,54.61,148,0.51,90.92,Low,Organic Neem Leaf Extract
+IMG-2026-0058,Tulsi,Cercospora Leaf Spot,fungal,Severe,64.28,76,0.47,89.47,Low,Organic Neem Leaf Extract
+IMG-2026-0059,Tulsi,Cercospora Leaf Spot,fungal,Moderate,33.9,95,0.9,98.48,Low,Organic Neem Leaf Extract
+IMG-2026-0060,Tomato,Early Blight,fungal,Moderate,45.45,159,0.95,88.82,High,Mancozeb 75% WP
+IMG-2026-0061,Wheat,Leaf Rust,fungal,Moderate,48.93,48,0.91,97.87,High,Propiconazole 25% EC
+IMG-2026-0062,Plant,Healthy Leaf,none,Healthy,0.37,1,0.03,99.25,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0063,Corn,Northern Leaf Blight,fungal,Moderate,34.08,150,0.31,97.15,High,Azoxystrobin
+IMG-2026-0064,Rose,Powdery Mildew,fungal,Severe,80.02,41,0.91,89.5,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0065,Tomato,Late Blight,fungal,Severe,76.95,156,0.4,91.16,Critical,Copper Oxychloride
+IMG-2026-0066,Wheat,Leaf Rust,fungal,Severe,64.39,67,0.75,97.55,High,Propiconazole 25% EC
+IMG-2026-0067,Apple,Apple Scab,fungal,Moderate,47.66,28,0.36,92.74,Medium,Captan 50% WP
+IMG-2026-0068,Rose,Powdery Mildew,fungal,Mild,15.22,100,0.8,95.14,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0069,Rose,Powdery Mildew,fungal,Mild,23.8,128,0.66,92.79,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0070,Tomato,Early Blight,fungal,Mild,20.17,53,0.65,97.35,High,Mancozeb 75% WP
+IMG-2026-0071,Grape,Black Rot,fungal,Severe,52.33,125,0.38,91.45,High,Myclobutanil
+IMG-2026-0072,Plant,Healthy Leaf,none,Healthy,1.4,0,0.18,97.19,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0073,Wheat,Leaf Rust,fungal,Severe,60.69,105,0.81,97.9,High,Propiconazole 25% EC
+IMG-2026-0074,Citrus,Bacterial Canker,bacterial,Severe,83.09,54,0.9,90.65,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0075,Potato,Late Blight,fungal,Severe,83.26,60,0.87,88.28,Critical,Cymoxanil + Mancozeb
+IMG-2026-0076,Corn,Northern Leaf Blight,fungal,Severe,79.49,120,0.82,97.68,High,Azoxystrobin
+IMG-2026-0077,Cotton,Bacterial Blight,bacterial,Moderate,30.12,55,0.81,89.21,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0078,Sugarcane,Red Rot,fungal,Mild,14.83,135,0.44,97.15,Critical,Carbendazim 50% WP
+IMG-2026-0079,Rice,Bacterial Leaf Blight,bacterial,Moderate,37.53,73,0.44,95.39,High,Copper Hydroxide
+IMG-2026-0080,Citrus,Bacterial Canker,bacterial,Moderate,35.96,32,0.93,91.13,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0081,Tulsi,Cercospora Leaf Spot,fungal,Moderate,49.19,152,0.52,88.31,Low,Organic Neem Leaf Extract
+IMG-2026-0082,Plant,Healthy Leaf,none,Healthy,1.46,0,0.12,99.75,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0083,Tomato,Early Blight,fungal,Mild,19.91,126,0.52,96.81,High,Mancozeb 75% WP
+IMG-2026-0084,Citrus,Bacterial Canker,bacterial,Severe,56.25,145,0.38,98.07,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0085,Wheat,Leaf Rust,fungal,Moderate,30.59,126,0.3,98.37,High,Propiconazole 25% EC
+IMG-2026-0086,Apple,Apple Scab,fungal,Severe,62.14,65,0.54,88.78,Medium,Captan 50% WP
+IMG-2026-0087,Tulsi,Cercospora Leaf Spot,fungal,Severe,79.22,174,0.5,97.5,Low,Organic Neem Leaf Extract
+IMG-2026-0088,Corn,Northern Leaf Blight,fungal,Severe,77.7,144,0.5,92.57,High,Azoxystrobin
+IMG-2026-0089,Citrus,Bacterial Canker,bacterial,Severe,62.9,156,0.38,92.71,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0090,Citrus,Bacterial Canker,bacterial,Severe,61.44,59,0.7,91.37,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0091,Apple,Apple Scab,fungal,Severe,72.86,92,0.49,92.81,Medium,Captan 50% WP
+IMG-2026-0092,Grape,Black Rot,fungal,Severe,56.29,97,0.6,92.95,High,Myclobutanil
+IMG-2026-0093,Wheat,Leaf Rust,fungal,Moderate,49.32,58,0.73,91.18,High,Propiconazole 25% EC
+IMG-2026-0094,Tulsi,Cercospora Leaf Spot,fungal,Severe,58.2,100,0.36,98.66,Low,Organic Neem Leaf Extract
+IMG-2026-0095,Wheat,Leaf Rust,fungal,Severe,61.11,72,0.82,89.65,High,Propiconazole 25% EC
+IMG-2026-0096,Tomato,Early Blight,fungal,Moderate,29.87,136,0.7,96.61,High,Mancozeb 75% WP
+IMG-2026-0097,Rice,Bacterial Leaf Blight,bacterial,Moderate,42.25,176,0.67,96.05,High,Copper Hydroxide
+IMG-2026-0098,Citrus,Bacterial Canker,bacterial,Moderate,48.09,77,0.4,95.7,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0099,Plant,Healthy Leaf,none,Healthy,1.13,0,0.16,97.22,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0100,Cotton,Bacterial Blight,bacterial,Severe,81.93,147,0.6,94.24,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0101,Plant,Healthy Leaf,none,Healthy,1.27,1,0.03,98.03,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0102,Apple,Apple Scab,fungal,Severe,84.12,167,0.51,96.46,Medium,Captan 50% WP
+IMG-2026-0103,Rice,Bacterial Leaf Blight,bacterial,Severe,56.72,144,0.58,98.16,High,Copper Hydroxide
+IMG-2026-0104,Rice,Bacterial Leaf Blight,bacterial,Severe,77.5,136,0.59,96.42,High,Copper Hydroxide
+IMG-2026-0105,Sugarcane,Red Rot,fungal,Severe,58.55,148,0.61,90.68,Critical,Carbendazim 50% WP
+IMG-2026-0106,Rice,Bacterial Leaf Blight,bacterial,Mild,17.66,88,0.45,91.76,High,Copper Hydroxide
+IMG-2026-0107,Plant,Healthy Leaf,none,Healthy,0.81,0,0.03,97.76,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0108,Potato,Late Blight,fungal,Severe,63.57,31,0.57,91.71,Critical,Cymoxanil + Mancozeb
+IMG-2026-0109,Rice,Bacterial Leaf Blight,bacterial,Moderate,42.35,67,0.84,92.36,High,Copper Hydroxide
+IMG-2026-0110,Cotton,Bacterial Blight,bacterial,Severe,54.64,20,0.86,96.57,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0111,Citrus,Bacterial Canker,bacterial,Moderate,46.82,105,0.49,92.37,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0112,Plant,Healthy Leaf,none,Healthy,1.43,1,0.11,98.92,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0113,Cotton,Bacterial Blight,bacterial,Severe,56.04,71,0.62,91.06,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0114,Rice,Bacterial Leaf Blight,bacterial,Mild,14.12,101,0.73,96.94,High,Copper Hydroxide
+IMG-2026-0115,Corn,Northern Leaf Blight,fungal,Mild,24.05,134,0.9,98.98,High,Azoxystrobin
+IMG-2026-0116,Apple,Apple Scab,fungal,Mild,13.97,115,0.68,95.43,Medium,Captan 50% WP
+IMG-2026-0117,Tomato,Late Blight,fungal,Severe,58.92,49,0.86,90.04,Critical,Copper Oxychloride
+IMG-2026-0118,Rose,Powdery Mildew,fungal,Moderate,39.67,69,0.6,91.78,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0119,Plant,Healthy Leaf,none,Healthy,0.57,1,0.05,96.77,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0120,Tomato,Early Blight,fungal,Severe,66.68,28,0.95,91.92,High,Mancozeb 75% WP
+IMG-2026-0121,Tulsi,Cercospora Leaf Spot,fungal,Mild,17.01,25,0.79,98.64,Low,Organic Neem Leaf Extract
+IMG-2026-0122,Wheat,Leaf Rust,fungal,Severe,73.26,174,0.4,89.41,High,Propiconazole 25% EC
+IMG-2026-0123,Tulsi,Cercospora Leaf Spot,fungal,Mild,20.35,70,0.6,90.87,Low,Organic Neem Leaf Extract
+IMG-2026-0124,Monstera,Spider Mites,pest,Mild,24.25,170,0.93,96.05,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0125,Cotton,Bacterial Blight,bacterial,Severe,71.81,94,0.37,88.29,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0126,Rose,Powdery Mildew,fungal,Severe,54.03,111,0.56,96.01,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0127,Tomato,Late Blight,fungal,Severe,55.22,175,0.46,95.81,Critical,Copper Oxychloride
+IMG-2026-0128,Rose,Powdery Mildew,fungal,Severe,74.07,168,0.82,96.92,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0129,Grape,Black Rot,fungal,Severe,69.13,103,0.65,95.41,High,Myclobutanil
+IMG-2026-0130,Tomato,Late Blight,fungal,Moderate,48.94,102,0.31,92.7,Critical,Copper Oxychloride
+IMG-2026-0131,Rice,Bacterial Leaf Blight,bacterial,Mild,19.7,107,0.71,97.28,High,Copper Hydroxide
+IMG-2026-0132,Corn,Northern Leaf Blight,fungal,Mild,23.17,60,0.78,98.81,High,Azoxystrobin
+IMG-2026-0133,Rose,Powdery Mildew,fungal,Severe,56.96,152,0.8,93.21,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0134,Sugarcane,Red Rot,fungal,Severe,65.36,83,0.51,90.75,Critical,Carbendazim 50% WP
+IMG-2026-0135,Plant,Healthy Leaf,none,Healthy,0.13,1,0.05,98.03,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0136,Grape,Black Rot,fungal,Severe,60.78,101,0.32,97.53,High,Myclobutanil
+IMG-2026-0137,Potato,Late Blight,fungal,Moderate,47.59,105,0.82,91.81,Critical,Cymoxanil + Mancozeb
+IMG-2026-0138,Plant,Healthy Leaf,none,Healthy,0.89,1,0.11,98.2,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0139,Wheat,Leaf Rust,fungal,Mild,18.25,119,0.62,96.49,High,Propiconazole 25% EC
+IMG-2026-0140,Corn,Northern Leaf Blight,fungal,Moderate,46.75,140,0.59,88.19,High,Azoxystrobin
+IMG-2026-0141,Rose,Powdery Mildew,fungal,Moderate,28.18,77,0.5,94.51,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0142,Rice,Bacterial Leaf Blight,bacterial,Severe,52.4,103,0.58,96.35,High,Copper Hydroxide
+IMG-2026-0143,Monstera,Spider Mites,pest,Moderate,37.68,131,0.48,90.82,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0144,Tomato,Late Blight,fungal,Severe,64.65,95,0.38,94.0,Critical,Copper Oxychloride
+IMG-2026-0145,Cotton,Bacterial Blight,bacterial,Severe,62.38,64,0.44,93.42,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0146,Corn,Northern Leaf Blight,fungal,Severe,55.04,149,0.69,98.98,High,Azoxystrobin
+IMG-2026-0147,Sugarcane,Red Rot,fungal,Moderate,26.17,73,0.53,91.39,Critical,Carbendazim 50% WP
+IMG-2026-0148,Corn,Northern Leaf Blight,fungal,Severe,50.99,85,0.33,88.61,High,Azoxystrobin
+IMG-2026-0149,Rose,Powdery Mildew,fungal,Severe,62.91,47,0.71,96.43,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0150,Tomato,Late Blight,fungal,Severe,75.71,161,0.48,93.36,Critical,Copper Oxychloride
+IMG-2026-0151,Monstera,Spider Mites,pest,Moderate,25.46,28,0.46,97.65,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0152,Tomato,Late Blight,fungal,Severe,72.01,117,0.62,94.46,Critical,Copper Oxychloride
+IMG-2026-0153,Tulsi,Cercospora Leaf Spot,fungal,Mild,15.91,53,0.83,98.63,Low,Organic Neem Leaf Extract
+IMG-2026-0154,Tomato,Late Blight,fungal,Severe,84.56,45,0.66,92.66,Critical,Copper Oxychloride
+IMG-2026-0155,Grape,Black Rot,fungal,Severe,69.72,72,0.8,92.26,High,Myclobutanil
+IMG-2026-0156,Plant,Healthy Leaf,none,Healthy,0.66,2,0.2,97.51,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0157,Grape,Black Rot,fungal,Mild,16.4,40,0.92,90.33,High,Myclobutanil
+IMG-2026-0158,Wheat,Leaf Rust,fungal,Moderate,31.32,35,0.4,89.95,High,Propiconazole 25% EC
+IMG-2026-0159,Tomato,Late Blight,fungal,Mild,23.43,119,0.59,94.65,Critical,Copper Oxychloride
+IMG-2026-0160,Rose,Powdery Mildew,fungal,Mild,14.38,88,0.76,95.87,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0161,Rice,Bacterial Leaf Blight,bacterial,Mild,17.2,74,0.9,96.82,High,Copper Hydroxide
+IMG-2026-0162,Tulsi,Cercospora Leaf Spot,fungal,Severe,55.05,65,0.58,94.1,Low,Organic Neem Leaf Extract
+IMG-2026-0163,Tulsi,Cercospora Leaf Spot,fungal,Mild,22.88,83,0.84,88.8,Low,Organic Neem Leaf Extract
+IMG-2026-0164,Potato,Late Blight,fungal,Severe,69.86,167,0.79,94.38,Critical,Cymoxanil + Mancozeb
+IMG-2026-0165,Rose,Powdery Mildew,fungal,Moderate,44.06,134,0.75,95.84,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0166,Rose,Powdery Mildew,fungal,Moderate,48.53,141,0.58,94.7,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0167,Plant,Healthy Leaf,none,Healthy,0.65,1,0.12,96.59,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0168,Wheat,Leaf Rust,fungal,Severe,82.22,162,0.68,88.23,High,Propiconazole 25% EC
+IMG-2026-0169,Cotton,Bacterial Blight,bacterial,Severe,61.08,83,0.67,96.55,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0170,Potato,Late Blight,fungal,Moderate,46.35,128,0.9,90.03,Critical,Cymoxanil + Mancozeb
+IMG-2026-0171,Grape,Black Rot,fungal,Moderate,43.82,140,0.93,93.26,High,Myclobutanil
+IMG-2026-0172,Citrus,Bacterial Canker,bacterial,Moderate,36.33,41,0.86,91.69,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0173,Corn,Northern Leaf Blight,fungal,Moderate,48.17,117,0.83,94.16,High,Azoxystrobin
+IMG-2026-0174,Rice,Bacterial Leaf Blight,bacterial,Mild,18.43,79,0.51,98.87,High,Copper Hydroxide
+IMG-2026-0175,Citrus,Bacterial Canker,bacterial,Severe,75.14,15,0.73,94.08,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0176,Citrus,Bacterial Canker,bacterial,Mild,15.96,147,0.54,96.47,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0177,Tulsi,Cercospora Leaf Spot,fungal,Moderate,44.27,28,0.43,94.15,Low,Organic Neem Leaf Extract
+IMG-2026-0178,Plant,Healthy Leaf,none,Healthy,0.43,2,0.1,96.6,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0179,Tulsi,Cercospora Leaf Spot,fungal,Severe,56.45,76,0.76,91.48,Low,Organic Neem Leaf Extract
+IMG-2026-0180,Tomato,Early Blight,fungal,Severe,52.31,38,0.45,97.42,High,Mancozeb 75% WP
+IMG-2026-0181,Tomato,Late Blight,fungal,Moderate,45.69,45,0.72,89.72,Critical,Copper Oxychloride
+IMG-2026-0182,Plant,Healthy Leaf,none,Healthy,1.07,2,0.14,97.87,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0183,Rice,Bacterial Leaf Blight,bacterial,Severe,83.56,77,0.6,89.62,High,Copper Hydroxide
+IMG-2026-0184,Wheat,Leaf Rust,fungal,Severe,79.3,145,0.79,89.53,High,Propiconazole 25% EC
+IMG-2026-0185,Tomato,Late Blight,fungal,Moderate,32.17,121,0.52,96.82,Critical,Copper Oxychloride
+IMG-2026-0186,Rose,Powdery Mildew,fungal,Severe,71.9,87,0.77,97.38,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0187,Grape,Black Rot,fungal,Severe,84.92,140,0.86,93.0,High,Myclobutanil
+IMG-2026-0188,Rice,Bacterial Leaf Blight,bacterial,Moderate,37.19,156,0.8,92.22,High,Copper Hydroxide
+IMG-2026-0189,Plant,Healthy Leaf,none,Healthy,0.48,0,0.2,97.29,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0190,Citrus,Bacterial Canker,bacterial,Moderate,29.05,120,0.33,96.34,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0191,Corn,Northern Leaf Blight,fungal,Severe,78.68,112,0.55,95.43,High,Azoxystrobin
+IMG-2026-0192,Sugarcane,Red Rot,fungal,Severe,59.6,53,0.62,88.41,Critical,Carbendazim 50% WP
+IMG-2026-0193,Apple,Apple Scab,fungal,Severe,82.47,99,0.87,97.79,Medium,Captan 50% WP
+IMG-2026-0194,Rice,Bacterial Leaf Blight,bacterial,Mild,19.28,131,0.31,89.61,High,Copper Hydroxide
+IMG-2026-0195,Sugarcane,Red Rot,fungal,Severe,59.8,54,0.35,96.75,Critical,Carbendazim 50% WP
+IMG-2026-0196,Rose,Powdery Mildew,fungal,Moderate,36.71,116,0.72,97.54,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0197,Sugarcane,Red Rot,fungal,Severe,61.23,151,0.55,91.55,Critical,Carbendazim 50% WP
+IMG-2026-0198,Corn,Northern Leaf Blight,fungal,Severe,76.78,139,0.87,88.4,High,Azoxystrobin
+IMG-2026-0199,Tomato,Late Blight,fungal,Moderate,29.14,88,0.95,96.36,Critical,Copper Oxychloride
+IMG-2026-0200,Citrus,Bacterial Canker,bacterial,Severe,83.42,177,0.76,89.13,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0201,Potato,Late Blight,fungal,Severe,62.66,22,0.33,96.92,Critical,Cymoxanil + Mancozeb
+IMG-2026-0202,Rose,Powdery Mildew,fungal,Moderate,38.17,125,0.39,93.95,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0203,Grape,Black Rot,fungal,Severe,61.77,61,0.41,88.88,High,Myclobutanil
+IMG-2026-0204,Sugarcane,Red Rot,fungal,Moderate,39.93,76,0.62,94.53,Critical,Carbendazim 50% WP
+IMG-2026-0205,Wheat,Leaf Rust,fungal,Moderate,45.66,80,0.6,95.47,High,Propiconazole 25% EC
+IMG-2026-0206,Plant,Healthy Leaf,none,Healthy,1.21,1,0.14,97.02,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0207,Rice,Bacterial Leaf Blight,bacterial,Severe,81.0,165,0.49,98.77,High,Copper Hydroxide
+IMG-2026-0208,Corn,Northern Leaf Blight,fungal,Moderate,30.26,92,0.43,92.31,High,Azoxystrobin
+IMG-2026-0209,Rice,Bacterial Leaf Blight,bacterial,Mild,19.79,112,0.67,94.44,High,Copper Hydroxide
+IMG-2026-0210,Corn,Northern Leaf Blight,fungal,Moderate,33.55,116,0.48,94.34,High,Azoxystrobin
+IMG-2026-0211,Tulsi,Cercospora Leaf Spot,fungal,Severe,68.82,27,0.89,96.35,Low,Organic Neem Leaf Extract
+IMG-2026-0212,Sugarcane,Red Rot,fungal,Severe,78.0,88,0.8,90.58,Critical,Carbendazim 50% WP
+IMG-2026-0213,Cotton,Bacterial Blight,bacterial,Moderate,37.72,177,0.42,90.81,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0214,Cotton,Bacterial Blight,bacterial,Severe,64.63,50,0.71,98.12,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0215,Tulsi,Cercospora Leaf Spot,fungal,Mild,14.88,127,0.32,92.09,Low,Organic Neem Leaf Extract
+IMG-2026-0216,Potato,Late Blight,fungal,Mild,18.58,90,0.51,92.65,Critical,Cymoxanil + Mancozeb
+IMG-2026-0217,Wheat,Leaf Rust,fungal,Mild,21.65,153,0.87,92.1,High,Propiconazole 25% EC
+IMG-2026-0218,Apple,Apple Scab,fungal,Severe,78.68,57,0.47,97.24,Medium,Captan 50% WP
+IMG-2026-0219,Rice,Bacterial Leaf Blight,bacterial,Severe,82.62,90,0.79,91.79,High,Copper Hydroxide
+IMG-2026-0220,Tomato,Late Blight,fungal,Moderate,46.19,34,0.39,98.82,Critical,Copper Oxychloride
+IMG-2026-0221,Sugarcane,Red Rot,fungal,Severe,61.37,116,0.93,97.01,Critical,Carbendazim 50% WP
+IMG-2026-0222,Monstera,Spider Mites,pest,Mild,18.59,116,0.31,94.01,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0223,Rice,Bacterial Leaf Blight,bacterial,Moderate,38.91,82,0.68,97.21,High,Copper Hydroxide
+IMG-2026-0224,Monstera,Spider Mites,pest,Mild,19.91,74,0.61,94.94,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0225,Apple,Apple Scab,fungal,Moderate,35.94,171,0.44,88.71,Medium,Captan 50% WP
+IMG-2026-0226,Sugarcane,Red Rot,fungal,Moderate,45.89,92,0.72,89.31,Critical,Carbendazim 50% WP
+IMG-2026-0227,Tomato,Early Blight,fungal,Severe,81.08,92,0.95,89.3,High,Mancozeb 75% WP
+IMG-2026-0228,Wheat,Leaf Rust,fungal,Severe,76.77,49,0.55,92.16,High,Propiconazole 25% EC
+IMG-2026-0229,Corn,Northern Leaf Blight,fungal,Severe,62.84,153,0.57,96.31,High,Azoxystrobin
+IMG-2026-0230,Potato,Late Blight,fungal,Severe,76.64,40,0.84,94.9,Critical,Cymoxanil + Mancozeb
+IMG-2026-0231,Rose,Powdery Mildew,fungal,Mild,14.39,109,0.44,92.98,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0232,Wheat,Leaf Rust,fungal,Severe,74.45,40,0.94,92.11,High,Propiconazole 25% EC
+IMG-2026-0233,Plant,Healthy Leaf,none,Healthy,1.47,1,0.01,97.41,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0234,Tomato,Late Blight,fungal,Severe,81.28,131,0.36,90.38,Critical,Copper Oxychloride
+IMG-2026-0235,Tulsi,Cercospora Leaf Spot,fungal,Severe,55.59,20,0.33,91.74,Low,Organic Neem Leaf Extract
+IMG-2026-0236,Potato,Late Blight,fungal,Severe,69.45,67,0.34,96.57,Critical,Cymoxanil + Mancozeb
+IMG-2026-0237,Wheat,Leaf Rust,fungal,Severe,54.81,74,0.51,89.65,High,Propiconazole 25% EC
+IMG-2026-0238,Plant,Healthy Leaf,none,Healthy,0.89,1,0.17,96.98,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0239,Potato,Late Blight,fungal,Severe,51.44,59,0.37,97.7,Critical,Cymoxanil + Mancozeb
+IMG-2026-0240,Potato,Late Blight,fungal,Mild,13.08,75,0.68,88.18,Critical,Cymoxanil + Mancozeb
+IMG-2026-0241,Rose,Powdery Mildew,fungal,Mild,15.83,122,0.64,96.35,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0242,Rice,Bacterial Leaf Blight,bacterial,Moderate,44.72,107,0.63,89.22,High,Copper Hydroxide
+IMG-2026-0243,Apple,Apple Scab,fungal,Moderate,28.17,172,0.33,96.77,Medium,Captan 50% WP
+IMG-2026-0244,Sugarcane,Red Rot,fungal,Severe,60.1,92,0.6,98.8,Critical,Carbendazim 50% WP
+IMG-2026-0245,Tomato,Early Blight,fungal,Severe,84.9,117,0.58,89.21,High,Mancozeb 75% WP
+IMG-2026-0246,Corn,Northern Leaf Blight,fungal,Severe,78.41,33,0.88,91.61,High,Azoxystrobin
+IMG-2026-0247,Potato,Late Blight,fungal,Mild,16.79,85,0.71,94.56,Critical,Cymoxanil + Mancozeb
+IMG-2026-0248,Corn,Northern Leaf Blight,fungal,Moderate,35.74,167,0.64,93.08,High,Azoxystrobin
+IMG-2026-0249,Grape,Black Rot,fungal,Moderate,43.4,44,0.85,95.29,High,Myclobutanil
+IMG-2026-0250,Cotton,Bacterial Blight,bacterial,Severe,52.25,70,0.58,97.95,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0251,Citrus,Bacterial Canker,bacterial,Moderate,36.74,131,0.56,96.17,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0252,Monstera,Spider Mites,pest,Moderate,43.15,80,0.54,89.71,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0253,Plant,Healthy Leaf,none,Healthy,0.71,0,0.17,96.81,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0254,Tomato,Late Blight,fungal,Severe,66.35,110,0.83,94.23,Critical,Copper Oxychloride
+IMG-2026-0255,Grape,Black Rot,fungal,Severe,81.83,158,0.51,89.37,High,Myclobutanil
+IMG-2026-0256,Monstera,Spider Mites,pest,Severe,75.77,123,0.86,96.08,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0257,Rose,Powdery Mildew,fungal,Severe,55.83,105,0.37,93.68,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0258,Potato,Late Blight,fungal,Severe,59.94,72,0.85,91.92,Critical,Cymoxanil + Mancozeb
+IMG-2026-0259,Apple,Apple Scab,fungal,Moderate,38.83,86,0.67,97.04,Medium,Captan 50% WP
+IMG-2026-0260,Sugarcane,Red Rot,fungal,Severe,52.95,174,0.7,95.2,Critical,Carbendazim 50% WP
+IMG-2026-0261,Tomato,Early Blight,fungal,Severe,56.46,83,0.32,91.06,High,Mancozeb 75% WP
+IMG-2026-0262,Cotton,Bacterial Blight,bacterial,Moderate,34.56,101,0.53,90.03,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0263,Potato,Late Blight,fungal,Severe,53.34,117,0.35,96.3,Critical,Cymoxanil + Mancozeb
+IMG-2026-0264,Tomato,Early Blight,fungal,Mild,18.7,150,0.44,92.7,High,Mancozeb 75% WP
+IMG-2026-0265,Monstera,Spider Mites,pest,Mild,23.49,94,0.77,96.7,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0266,Grape,Black Rot,fungal,Severe,55.52,28,0.4,96.45,High,Myclobutanil
+IMG-2026-0267,Tomato,Early Blight,fungal,Severe,61.2,84,0.59,92.75,High,Mancozeb 75% WP
+IMG-2026-0268,Grape,Black Rot,fungal,Moderate,44.27,84,0.44,93.74,High,Myclobutanil
+IMG-2026-0269,Monstera,Spider Mites,pest,Moderate,43.38,87,0.74,94.64,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0270,Apple,Apple Scab,fungal,Severe,60.7,26,0.44,99.03,Medium,Captan 50% WP
+IMG-2026-0271,Tomato,Early Blight,fungal,Mild,12.56,92,0.91,96.59,High,Mancozeb 75% WP
+IMG-2026-0272,Cotton,Bacterial Blight,bacterial,Moderate,30.65,98,0.38,93.57,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0273,Citrus,Bacterial Canker,bacterial,Mild,24.83,112,0.65,90.58,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0274,Apple,Apple Scab,fungal,Severe,72.83,105,0.35,97.65,Medium,Captan 50% WP
+IMG-2026-0275,Tomato,Early Blight,fungal,Moderate,43.84,132,0.9,97.66,High,Mancozeb 75% WP
+IMG-2026-0276,Grape,Black Rot,fungal,Moderate,43.34,118,0.76,92.68,High,Myclobutanil
+IMG-2026-0277,Tomato,Late Blight,fungal,Moderate,41.57,98,0.41,98.61,Critical,Copper Oxychloride
+IMG-2026-0278,Rice,Bacterial Leaf Blight,bacterial,Severe,72.74,107,0.36,97.46,High,Copper Hydroxide
+IMG-2026-0279,Wheat,Leaf Rust,fungal,Moderate,43.8,117,0.64,92.43,High,Propiconazole 25% EC
+IMG-2026-0280,Rose,Powdery Mildew,fungal,Severe,66.44,71,0.52,89.88,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0281,Apple,Apple Scab,fungal,Severe,58.23,150,0.63,98.15,Medium,Captan 50% WP
+IMG-2026-0282,Monstera,Spider Mites,pest,Moderate,37.63,180,0.83,90.65,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0283,Potato,Late Blight,fungal,Moderate,30.69,59,0.69,96.51,Critical,Cymoxanil + Mancozeb
+IMG-2026-0284,Tulsi,Cercospora Leaf Spot,fungal,Mild,17.5,175,0.62,96.45,Low,Organic Neem Leaf Extract
+IMG-2026-0285,Cotton,Bacterial Blight,bacterial,Severe,54.3,159,0.72,99.05,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0286,Monstera,Spider Mites,pest,Severe,75.09,175,0.51,92.93,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0287,Rice,Bacterial Leaf Blight,bacterial,Moderate,44.28,92,0.82,94.62,High,Copper Hydroxide
+IMG-2026-0288,Monstera,Spider Mites,pest,Moderate,49.04,94,0.6,88.42,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0289,Monstera,Spider Mites,pest,Severe,72.71,34,0.72,98.95,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0290,Tomato,Late Blight,fungal,Severe,56.9,144,0.55,94.5,Critical,Copper Oxychloride
+IMG-2026-0291,Cotton,Bacterial Blight,bacterial,Severe,65.94,25,0.59,97.07,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0292,Tulsi,Cercospora Leaf Spot,fungal,Moderate,25.74,169,0.61,89.69,Low,Organic Neem Leaf Extract
+IMG-2026-0293,Tomato,Early Blight,fungal,Moderate,44.89,102,0.94,88.94,High,Mancozeb 75% WP
+IMG-2026-0294,Tulsi,Cercospora Leaf Spot,fungal,Mild,24.6,78,0.76,99.1,Low,Organic Neem Leaf Extract
+IMG-2026-0295,Apple,Apple Scab,fungal,Severe,50.16,55,0.54,98.28,Medium,Captan 50% WP
+IMG-2026-0296,Citrus,Bacterial Canker,bacterial,Moderate,41.84,101,0.74,88.59,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0297,Tulsi,Cercospora Leaf Spot,fungal,Severe,59.25,31,0.51,94.25,Low,Organic Neem Leaf Extract
+IMG-2026-0298,Citrus,Bacterial Canker,bacterial,Moderate,32.74,169,0.87,91.73,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0299,Grape,Black Rot,fungal,Severe,60.44,104,0.5,95.35,High,Myclobutanil
+IMG-2026-0300,Tulsi,Cercospora Leaf Spot,fungal,Moderate,40.61,167,0.76,88.95,Low,Organic Neem Leaf Extract
+IMG-2026-0301,Apple,Apple Scab,fungal,Moderate,39.5,99,0.83,95.51,Medium,Captan 50% WP
+IMG-2026-0302,Sugarcane,Red Rot,fungal,Severe,81.14,149,0.36,95.51,Critical,Carbendazim 50% WP
+IMG-2026-0303,Apple,Apple Scab,fungal,Moderate,38.41,107,0.5,98.65,Medium,Captan 50% WP
+IMG-2026-0304,Monstera,Spider Mites,pest,Severe,81.18,139,0.42,99.2,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0305,Potato,Late Blight,fungal,Mild,17.63,40,0.63,94.05,Critical,Cymoxanil + Mancozeb
+IMG-2026-0306,Corn,Northern Leaf Blight,fungal,Severe,76.51,24,0.73,97.82,High,Azoxystrobin
+IMG-2026-0307,Grape,Black Rot,fungal,Mild,21.57,111,0.4,90.03,High,Myclobutanil
+IMG-2026-0308,Corn,Northern Leaf Blight,fungal,Severe,68.29,57,0.77,88.49,High,Azoxystrobin
+IMG-2026-0309,Monstera,Spider Mites,pest,Severe,61.37,75,0.93,94.84,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0310,Cotton,Bacterial Blight,bacterial,Severe,66.64,129,0.45,90.68,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0311,Cotton,Bacterial Blight,bacterial,Severe,69.26,64,0.54,98.61,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0312,Rice,Bacterial Leaf Blight,bacterial,Moderate,45.7,87,0.81,93.63,High,Copper Hydroxide
+IMG-2026-0313,Citrus,Bacterial Canker,bacterial,Severe,82.54,66,0.82,89.55,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0314,Rose,Powdery Mildew,fungal,Mild,15.81,138,0.87,94.21,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0315,Tomato,Late Blight,fungal,Severe,63.93,147,0.85,91.19,Critical,Copper Oxychloride
+IMG-2026-0316,Cotton,Bacterial Blight,bacterial,Mild,23.7,130,0.89,89.65,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0317,Citrus,Bacterial Canker,bacterial,Mild,18.7,71,0.83,97.91,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0318,Plant,Healthy Leaf,none,Healthy,0.04,0,0.08,97.73,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0319,Citrus,Bacterial Canker,bacterial,Severe,84.6,110,0.45,91.57,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0320,Tomato,Late Blight,fungal,Severe,73.26,100,0.81,89.54,Critical,Copper Oxychloride
+IMG-2026-0321,Rose,Powdery Mildew,fungal,Severe,78.97,135,0.75,89.55,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0322,Corn,Northern Leaf Blight,fungal,Moderate,46.25,172,0.3,88.89,High,Azoxystrobin
+IMG-2026-0323,Rose,Powdery Mildew,fungal,Moderate,27.74,53,0.66,96.15,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0324,Apple,Apple Scab,fungal,Moderate,42.9,88,0.45,89.36,Medium,Captan 50% WP
+IMG-2026-0325,Wheat,Leaf Rust,fungal,Moderate,42.65,174,0.6,89.24,High,Propiconazole 25% EC
+IMG-2026-0326,Plant,Healthy Leaf,none,Healthy,0.75,2,0.0,98.2,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0327,Wheat,Leaf Rust,fungal,Severe,64.45,89,0.58,94.89,High,Propiconazole 25% EC
+IMG-2026-0328,Wheat,Leaf Rust,fungal,Severe,53.66,62,0.73,88.96,High,Propiconazole 25% EC
+IMG-2026-0329,Monstera,Spider Mites,pest,Mild,16.94,149,0.65,96.81,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0330,Apple,Apple Scab,fungal,Severe,52.45,114,0.87,88.49,Medium,Captan 50% WP
+IMG-2026-0331,Citrus,Bacterial Canker,bacterial,Severe,83.62,79,0.79,92.0,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0332,Tomato,Late Blight,fungal,Moderate,37.17,175,0.37,94.52,Critical,Copper Oxychloride
+IMG-2026-0333,Cotton,Bacterial Blight,bacterial,Moderate,36.27,26,0.53,91.79,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0334,Tulsi,Cercospora Leaf Spot,fungal,Mild,24.78,133,0.94,93.36,Low,Organic Neem Leaf Extract
+IMG-2026-0335,Potato,Late Blight,fungal,Severe,71.24,31,0.77,98.57,Critical,Cymoxanil + Mancozeb
+IMG-2026-0336,Tomato,Early Blight,fungal,Moderate,33.42,26,0.81,97.92,High,Mancozeb 75% WP
+IMG-2026-0337,Monstera,Spider Mites,pest,Severe,80.14,146,0.56,97.13,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0338,Rice,Bacterial Leaf Blight,bacterial,Moderate,30.49,180,0.42,92.0,High,Copper Hydroxide
+IMG-2026-0339,Cotton,Bacterial Blight,bacterial,Mild,15.49,99,0.48,96.95,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0340,Citrus,Bacterial Canker,bacterial,Severe,76.93,127,0.88,92.33,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0341,Potato,Late Blight,fungal,Moderate,48.22,142,0.54,96.93,Critical,Cymoxanil + Mancozeb
+IMG-2026-0342,Rose,Powdery Mildew,fungal,Severe,70.48,123,0.35,94.75,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0343,Sugarcane,Red Rot,fungal,Moderate,25.17,90,0.51,88.9,Critical,Carbendazim 50% WP
+IMG-2026-0344,Tulsi,Cercospora Leaf Spot,fungal,Moderate,33.58,129,0.69,92.77,Low,Organic Neem Leaf Extract
+IMG-2026-0345,Corn,Northern Leaf Blight,fungal,Moderate,44.41,129,0.33,97.74,High,Azoxystrobin
+IMG-2026-0346,Monstera,Spider Mites,pest,Severe,56.88,126,0.48,98.98,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0347,Tomato,Early Blight,fungal,Mild,17.48,178,0.56,93.75,High,Mancozeb 75% WP
+IMG-2026-0348,Corn,Northern Leaf Blight,fungal,Severe,61.6,22,0.39,94.8,High,Azoxystrobin
+IMG-2026-0349,Cotton,Bacterial Blight,bacterial,Moderate,43.99,47,0.34,96.72,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0350,Monstera,Spider Mites,pest,Moderate,38.44,160,0.32,89.72,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0351,Rice,Bacterial Leaf Blight,bacterial,Severe,81.26,110,0.59,88.86,High,Copper Hydroxide
+IMG-2026-0352,Potato,Late Blight,fungal,Severe,50.65,116,0.5,91.12,Critical,Cymoxanil + Mancozeb
+IMG-2026-0353,Tomato,Late Blight,fungal,Mild,13.89,62,0.62,92.33,Critical,Copper Oxychloride
+IMG-2026-0354,Apple,Apple Scab,fungal,Mild,20.6,81,0.76,90.4,Medium,Captan 50% WP
+IMG-2026-0355,Grape,Black Rot,fungal,Moderate,32.85,140,0.43,89.52,High,Myclobutanil
+IMG-2026-0356,Tomato,Late Blight,fungal,Moderate,45.0,128,0.95,97.08,Critical,Copper Oxychloride
+IMG-2026-0357,Sugarcane,Red Rot,fungal,Severe,84.02,103,0.76,94.16,Critical,Carbendazim 50% WP
+IMG-2026-0358,Rose,Powdery Mildew,fungal,Severe,77.07,55,0.76,98.39,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0359,Tulsi,Cercospora Leaf Spot,fungal,Mild,24.71,107,0.63,89.36,Low,Organic Neem Leaf Extract
+IMG-2026-0360,Wheat,Leaf Rust,fungal,Severe,69.82,75,0.81,88.29,High,Propiconazole 25% EC
+IMG-2026-0361,Apple,Apple Scab,fungal,Severe,53.78,134,0.82,94.18,Medium,Captan 50% WP
+IMG-2026-0362,Grape,Black Rot,fungal,Severe,76.55,31,0.5,99.2,High,Myclobutanil
+IMG-2026-0363,Corn,Northern Leaf Blight,fungal,Moderate,46.94,120,0.8,97.22,High,Azoxystrobin
+IMG-2026-0364,Tomato,Late Blight,fungal,Mild,21.15,96,0.72,93.04,Critical,Copper Oxychloride
+IMG-2026-0365,Tulsi,Cercospora Leaf Spot,fungal,Moderate,49.77,47,0.87,96.74,Low,Organic Neem Leaf Extract
+IMG-2026-0366,Tulsi,Cercospora Leaf Spot,fungal,Severe,54.91,48,0.58,98.2,Low,Organic Neem Leaf Extract
+IMG-2026-0367,Tomato,Early Blight,fungal,Severe,72.69,147,0.4,89.84,High,Mancozeb 75% WP
+IMG-2026-0368,Monstera,Spider Mites,pest,Severe,80.24,72,0.52,98.54,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0369,Plant,Healthy Leaf,none,Healthy,0.43,0,0.05,98.6,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0370,Apple,Apple Scab,fungal,Moderate,32.03,175,0.5,93.97,Medium,Captan 50% WP
+IMG-2026-0371,Apple,Apple Scab,fungal,Severe,58.79,166,0.91,89.73,Medium,Captan 50% WP
+IMG-2026-0372,Tulsi,Cercospora Leaf Spot,fungal,Severe,57.59,169,0.52,98.35,Low,Organic Neem Leaf Extract
+IMG-2026-0373,Tomato,Early Blight,fungal,Severe,72.24,22,0.35,98.62,High,Mancozeb 75% WP
+IMG-2026-0374,Cotton,Bacterial Blight,bacterial,Severe,54.1,68,0.8,92.67,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0375,Tulsi,Cercospora Leaf Spot,fungal,Mild,14.21,175,0.65,95.19,Low,Organic Neem Leaf Extract
+IMG-2026-0376,Rose,Powdery Mildew,fungal,Moderate,47.25,118,0.49,88.82,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0377,Tomato,Early Blight,fungal,Mild,23.54,121,0.61,90.29,High,Mancozeb 75% WP
+IMG-2026-0378,Grape,Black Rot,fungal,Mild,22.49,96,0.78,97.64,High,Myclobutanil
+IMG-2026-0379,Citrus,Bacterial Canker,bacterial,Mild,21.55,109,0.63,89.19,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0380,Wheat,Leaf Rust,fungal,Moderate,46.05,83,0.59,89.58,High,Propiconazole 25% EC
+IMG-2026-0381,Tomato,Early Blight,fungal,Moderate,33.19,113,0.86,92.68,High,Mancozeb 75% WP
+IMG-2026-0382,Sugarcane,Red Rot,fungal,Severe,77.87,98,0.91,96.08,Critical,Carbendazim 50% WP
+IMG-2026-0383,Wheat,Leaf Rust,fungal,Severe,67.71,142,0.95,93.23,High,Propiconazole 25% EC
+IMG-2026-0384,Plant,Healthy Leaf,none,Healthy,0.46,0,0.02,97.8,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0385,Rice,Bacterial Leaf Blight,bacterial,Severe,82.57,70,0.68,88.54,High,Copper Hydroxide
+IMG-2026-0386,Rose,Powdery Mildew,fungal,Moderate,48.13,135,0.49,88.09,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0387,Tomato,Late Blight,fungal,Moderate,43.46,82,0.77,96.56,Critical,Copper Oxychloride
+IMG-2026-0388,Monstera,Spider Mites,pest,Mild,15.3,28,0.67,90.18,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0389,Apple,Apple Scab,fungal,Moderate,33.07,113,0.63,96.56,Medium,Captan 50% WP
+IMG-2026-0390,Rose,Powdery Mildew,fungal,Severe,72.25,174,0.74,89.33,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0391,Tomato,Late Blight,fungal,Moderate,40.75,101,0.66,92.09,Critical,Copper Oxychloride
+IMG-2026-0392,Potato,Late Blight,fungal,Moderate,26.53,145,0.56,88.45,Critical,Cymoxanil + Mancozeb
+IMG-2026-0393,Tomato,Early Blight,fungal,Mild,22.0,100,0.82,93.82,High,Mancozeb 75% WP
+IMG-2026-0394,Potato,Late Blight,fungal,Severe,56.26,146,0.39,98.43,Critical,Cymoxanil + Mancozeb
+IMG-2026-0395,Monstera,Spider Mites,pest,Mild,23.86,172,0.78,91.35,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0396,Monstera,Spider Mites,pest,Moderate,49.03,145,0.65,95.94,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0397,Rose,Powdery Mildew,fungal,Moderate,46.67,19,0.54,95.55,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0398,Citrus,Bacterial Canker,bacterial,Severe,54.61,176,0.32,93.32,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0399,Tulsi,Cercospora Leaf Spot,fungal,Severe,69.15,163,0.68,96.08,Low,Organic Neem Leaf Extract
+IMG-2026-0400,Grape,Black Rot,fungal,Moderate,47.07,149,0.71,94.94,High,Myclobutanil
+IMG-2026-0401,Sugarcane,Red Rot,fungal,Moderate,39.75,77,0.32,98.62,Critical,Carbendazim 50% WP
+IMG-2026-0402,Tomato,Late Blight,fungal,Moderate,25.93,127,0.5,89.7,Critical,Copper Oxychloride
+IMG-2026-0403,Corn,Northern Leaf Blight,fungal,Moderate,26.88,143,0.8,98.31,High,Azoxystrobin
+IMG-2026-0404,Sugarcane,Red Rot,fungal,Severe,73.93,30,0.76,93.81,Critical,Carbendazim 50% WP
+IMG-2026-0405,Apple,Apple Scab,fungal,Moderate,35.73,137,0.64,91.51,Medium,Captan 50% WP
+IMG-2026-0406,Potato,Late Blight,fungal,Moderate,45.56,151,0.52,91.97,Critical,Cymoxanil + Mancozeb
+IMG-2026-0407,Cotton,Bacterial Blight,bacterial,Severe,75.34,179,0.82,90.96,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0408,Rice,Bacterial Leaf Blight,bacterial,Moderate,26.04,78,0.48,91.34,High,Copper Hydroxide
+IMG-2026-0409,Rose,Powdery Mildew,fungal,Severe,68.3,68,0.75,93.48,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0410,Rice,Bacterial Leaf Blight,bacterial,Moderate,37.46,85,0.49,94.42,High,Copper Hydroxide
+IMG-2026-0411,Apple,Apple Scab,fungal,Moderate,39.72,116,0.83,98.69,Medium,Captan 50% WP
+IMG-2026-0412,Cotton,Bacterial Blight,bacterial,Mild,22.69,25,0.49,96.0,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0413,Monstera,Spider Mites,pest,Severe,79.45,80,0.79,90.4,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0414,Sugarcane,Red Rot,fungal,Severe,51.32,158,0.75,89.54,Critical,Carbendazim 50% WP
+IMG-2026-0415,Grape,Black Rot,fungal,Severe,66.09,76,0.46,95.5,High,Myclobutanil
+IMG-2026-0416,Apple,Apple Scab,fungal,Moderate,28.47,74,0.33,92.63,Medium,Captan 50% WP
+IMG-2026-0417,Corn,Northern Leaf Blight,fungal,Moderate,46.49,50,0.3,94.16,High,Azoxystrobin
+IMG-2026-0418,Plant,Healthy Leaf,none,Healthy,0.24,2,0.19,99.4,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0419,Rice,Bacterial Leaf Blight,bacterial,Severe,59.49,88,0.51,95.23,High,Copper Hydroxide
+IMG-2026-0420,Plant,Healthy Leaf,none,Healthy,1.15,2,0.11,98.27,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0421,Corn,Northern Leaf Blight,fungal,Severe,74.07,24,0.89,89.96,High,Azoxystrobin
+IMG-2026-0422,Plant,Healthy Leaf,none,Healthy,1.26,0,0.2,97.81,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0423,Rice,Bacterial Leaf Blight,bacterial,Moderate,25.6,89,0.87,88.1,High,Copper Hydroxide
+IMG-2026-0424,Grape,Black Rot,fungal,Severe,56.0,100,0.48,99.08,High,Myclobutanil
+IMG-2026-0425,Apple,Apple Scab,fungal,Severe,50.28,49,0.85,93.24,Medium,Captan 50% WP
+IMG-2026-0426,Wheat,Leaf Rust,fungal,Severe,71.04,99,0.41,93.14,High,Propiconazole 25% EC
+IMG-2026-0427,Rose,Powdery Mildew,fungal,Severe,64.46,18,0.78,96.86,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0428,Grape,Black Rot,fungal,Severe,61.23,64,0.41,97.59,High,Myclobutanil
+IMG-2026-0429,Plant,Healthy Leaf,none,Healthy,0.61,1,0.1,96.79,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0430,Tulsi,Cercospora Leaf Spot,fungal,Mild,18.96,50,0.61,98.48,Low,Organic Neem Leaf Extract
+IMG-2026-0431,Tomato,Early Blight,fungal,Moderate,31.04,75,0.59,90.99,High,Mancozeb 75% WP
+IMG-2026-0432,Monstera,Spider Mites,pest,Moderate,34.04,161,0.31,95.32,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0433,Corn,Northern Leaf Blight,fungal,Moderate,29.25,45,0.6,89.79,High,Azoxystrobin
+IMG-2026-0434,Tulsi,Cercospora Leaf Spot,fungal,Moderate,48.68,94,0.75,95.15,Low,Organic Neem Leaf Extract
+IMG-2026-0435,Rose,Powdery Mildew,fungal,Moderate,38.83,71,0.44,89.5,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0436,Potato,Late Blight,fungal,Moderate,45.21,170,0.54,95.86,Critical,Cymoxanil + Mancozeb
+IMG-2026-0437,Plant,Healthy Leaf,none,Healthy,0.71,2,0.16,99.22,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0438,Cotton,Bacterial Blight,bacterial,Moderate,30.06,167,0.87,88.92,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0439,Rice,Bacterial Leaf Blight,bacterial,Severe,50.56,107,0.35,94.32,High,Copper Hydroxide
+IMG-2026-0440,Tomato,Early Blight,fungal,Severe,72.5,144,0.43,94.01,High,Mancozeb 75% WP
+IMG-2026-0441,Potato,Late Blight,fungal,Moderate,35.95,148,0.59,95.62,Critical,Cymoxanil + Mancozeb
+IMG-2026-0442,Corn,Northern Leaf Blight,fungal,Severe,54.57,38,0.88,92.99,High,Azoxystrobin
+IMG-2026-0443,Tomato,Early Blight,fungal,Moderate,45.1,146,0.57,94.32,High,Mancozeb 75% WP
+IMG-2026-0444,Apple,Apple Scab,fungal,Moderate,45.75,93,0.77,92.43,Medium,Captan 50% WP
+IMG-2026-0445,Sugarcane,Red Rot,fungal,Mild,12.22,70,0.68,88.51,Critical,Carbendazim 50% WP
+IMG-2026-0446,Monstera,Spider Mites,pest,Severe,63.13,153,0.95,98.47,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0447,Tomato,Late Blight,fungal,Severe,83.99,135,0.32,92.58,Critical,Copper Oxychloride
+IMG-2026-0448,Cotton,Bacterial Blight,bacterial,Mild,21.89,179,0.94,95.23,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0449,Citrus,Bacterial Canker,bacterial,Moderate,39.34,112,0.59,98.27,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0450,Citrus,Bacterial Canker,bacterial,Moderate,39.42,153,0.39,97.64,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0451,Tomato,Late Blight,fungal,Moderate,25.03,152,0.56,89.43,Critical,Copper Oxychloride
+IMG-2026-0452,Wheat,Leaf Rust,fungal,Severe,72.94,20,0.94,93.19,High,Propiconazole 25% EC
+IMG-2026-0453,Corn,Northern Leaf Blight,fungal,Severe,51.74,151,0.55,90.57,High,Azoxystrobin
+IMG-2026-0454,Rice,Bacterial Leaf Blight,bacterial,Moderate,37.27,85,0.42,97.8,High,Copper Hydroxide
+IMG-2026-0455,Cotton,Bacterial Blight,bacterial,Mild,20.24,122,0.7,98.49,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0456,Plant,Healthy Leaf,none,Healthy,0.02,0,0.01,98.46,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0457,Rice,Bacterial Leaf Blight,bacterial,Severe,55.64,27,0.46,88.5,High,Copper Hydroxide
+IMG-2026-0458,Rice,Bacterial Leaf Blight,bacterial,Moderate,29.11,70,0.79,96.69,High,Copper Hydroxide
+IMG-2026-0459,Potato,Late Blight,fungal,Moderate,48.78,89,0.45,98.26,Critical,Cymoxanil + Mancozeb
+IMG-2026-0460,Grape,Black Rot,fungal,Moderate,35.28,168,0.8,97.17,High,Myclobutanil
+IMG-2026-0461,Wheat,Leaf Rust,fungal,Moderate,34.03,51,0.94,93.84,High,Propiconazole 25% EC
+IMG-2026-0462,Citrus,Bacterial Canker,bacterial,Moderate,33.94,30,0.66,94.63,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0463,Corn,Northern Leaf Blight,fungal,Severe,78.55,175,0.74,94.23,High,Azoxystrobin
+IMG-2026-0464,Tomato,Early Blight,fungal,Severe,82.98,179,0.74,96.8,High,Mancozeb 75% WP
+IMG-2026-0465,Monstera,Spider Mites,pest,Severe,62.83,119,0.4,92.22,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0466,Cotton,Bacterial Blight,bacterial,Severe,51.27,76,0.85,91.37,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0467,Corn,Northern Leaf Blight,fungal,Mild,22.54,133,0.89,94.3,High,Azoxystrobin
+IMG-2026-0468,Citrus,Bacterial Canker,bacterial,Severe,52.68,49,0.55,90.86,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0469,Monstera,Spider Mites,pest,Severe,59.21,130,0.85,89.04,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0470,Corn,Northern Leaf Blight,fungal,Severe,72.55,28,0.47,95.55,High,Azoxystrobin
+IMG-2026-0471,Grape,Black Rot,fungal,Mild,14.89,33,0.42,96.53,High,Myclobutanil
+IMG-2026-0472,Corn,Northern Leaf Blight,fungal,Severe,61.02,70,0.61,97.74,High,Azoxystrobin
+IMG-2026-0473,Monstera,Spider Mites,pest,Moderate,34.13,18,0.44,90.13,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0474,Corn,Northern Leaf Blight,fungal,Mild,20.56,137,0.89,95.79,High,Azoxystrobin
+IMG-2026-0475,Corn,Northern Leaf Blight,fungal,Moderate,26.93,76,0.66,96.69,High,Azoxystrobin
+IMG-2026-0476,Citrus,Bacterial Canker,bacterial,Moderate,46.04,106,0.5,92.03,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0477,Plant,Healthy Leaf,none,Healthy,0.75,0,0.16,98.88,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0478,Cotton,Bacterial Blight,bacterial,Severe,73.3,67,0.54,92.64,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0479,Grape,Black Rot,fungal,Severe,75.08,52,0.31,94.2,High,Myclobutanil
+IMG-2026-0480,Grape,Black Rot,fungal,Severe,54.28,121,0.49,90.2,High,Myclobutanil
+IMG-2026-0481,Wheat,Leaf Rust,fungal,Moderate,39.73,77,0.62,95.33,High,Propiconazole 25% EC
+IMG-2026-0482,Tulsi,Cercospora Leaf Spot,fungal,Moderate,36.64,140,0.93,95.19,Low,Organic Neem Leaf Extract
+IMG-2026-0483,Rice,Bacterial Leaf Blight,bacterial,Moderate,45.64,105,0.41,96.07,High,Copper Hydroxide
+IMG-2026-0484,Rice,Bacterial Leaf Blight,bacterial,Moderate,25.44,153,0.94,98.72,High,Copper Hydroxide
+IMG-2026-0485,Apple,Apple Scab,fungal,Mild,14.47,34,0.91,95.48,Medium,Captan 50% WP
+IMG-2026-0486,Cotton,Bacterial Blight,bacterial,Mild,12.47,50,0.85,90.59,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0487,Corn,Northern Leaf Blight,fungal,Mild,23.03,70,0.63,92.18,High,Azoxystrobin
+IMG-2026-0488,Grape,Black Rot,fungal,Severe,58.55,172,0.89,95.38,High,Myclobutanil
+IMG-2026-0489,Tomato,Early Blight,fungal,Mild,12.48,156,0.57,88.19,High,Mancozeb 75% WP
+IMG-2026-0490,Corn,Northern Leaf Blight,fungal,Moderate,32.06,88,0.31,97.11,High,Azoxystrobin
+IMG-2026-0491,Tulsi,Cercospora Leaf Spot,fungal,Moderate,43.43,60,0.37,89.08,Low,Organic Neem Leaf Extract
+IMG-2026-0492,Potato,Late Blight,fungal,Moderate,29.59,173,0.64,97.13,Critical,Cymoxanil + Mancozeb
+IMG-2026-0493,Rose,Powdery Mildew,fungal,Severe,70.03,35,0.54,92.55,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0494,Grape,Black Rot,fungal,Moderate,29.75,72,0.49,97.27,High,Myclobutanil
+IMG-2026-0495,Tomato,Late Blight,fungal,Severe,59.72,23,0.36,92.25,Critical,Copper Oxychloride
+IMG-2026-0496,Apple,Apple Scab,fungal,Moderate,46.75,178,0.31,89.92,Medium,Captan 50% WP
+IMG-2026-0497,Rice,Bacterial Leaf Blight,bacterial,Severe,73.71,180,0.81,94.34,High,Copper Hydroxide
+IMG-2026-0498,Sugarcane,Red Rot,fungal,Severe,83.09,150,0.9,90.57,Critical,Carbendazim 50% WP
+IMG-2026-0499,Plant,Healthy Leaf,none,Healthy,1.3,2,0.1,96.65,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0500,Tomato,Late Blight,fungal,Severe,61.96,86,0.88,94.31,Critical,Copper Oxychloride
+IMG-2026-0501,Tomato,Early Blight,fungal,Moderate,25.09,95,0.31,90.32,High,Mancozeb 75% WP
+IMG-2026-0502,Potato,Late Blight,fungal,Severe,66.91,116,0.9,91.35,Critical,Cymoxanil + Mancozeb
+IMG-2026-0503,Grape,Black Rot,fungal,Moderate,29.55,114,0.74,94.05,High,Myclobutanil
+IMG-2026-0504,Citrus,Bacterial Canker,bacterial,Severe,67.16,50,0.81,95.72,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0505,Tomato,Late Blight,fungal,Moderate,48.56,103,0.33,92.9,Critical,Copper Oxychloride
+IMG-2026-0506,Sugarcane,Red Rot,fungal,Mild,17.55,169,0.8,98.69,Critical,Carbendazim 50% WP
+IMG-2026-0507,Citrus,Bacterial Canker,bacterial,Severe,82.73,98,0.32,91.06,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0508,Rice,Bacterial Leaf Blight,bacterial,Moderate,47.81,106,0.66,92.2,High,Copper Hydroxide
+IMG-2026-0509,Potato,Late Blight,fungal,Severe,61.62,112,0.36,94.93,Critical,Cymoxanil + Mancozeb
+IMG-2026-0510,Cotton,Bacterial Blight,bacterial,Moderate,29.99,33,0.35,89.73,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0511,Corn,Northern Leaf Blight,fungal,Severe,69.22,54,0.78,91.55,High,Azoxystrobin
+IMG-2026-0512,Tomato,Late Blight,fungal,Mild,18.68,93,0.59,96.53,Critical,Copper Oxychloride
+IMG-2026-0513,Tomato,Late Blight,fungal,Mild,21.67,62,0.58,94.24,Critical,Copper Oxychloride
+IMG-2026-0514,Apple,Apple Scab,fungal,Moderate,41.79,21,0.36,94.21,Medium,Captan 50% WP
+IMG-2026-0515,Grape,Black Rot,fungal,Severe,55.66,98,0.86,88.14,High,Myclobutanil
+IMG-2026-0516,Citrus,Bacterial Canker,bacterial,Moderate,40.31,36,0.77,94.27,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0517,Wheat,Leaf Rust,fungal,Severe,53.75,58,0.75,89.9,High,Propiconazole 25% EC
+IMG-2026-0518,Rose,Powdery Mildew,fungal,Moderate,33.98,141,0.39,89.87,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0519,Rose,Powdery Mildew,fungal,Moderate,42.74,138,0.81,92.04,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0520,Wheat,Leaf Rust,fungal,Severe,64.63,141,0.69,90.19,High,Propiconazole 25% EC
+IMG-2026-0521,Tomato,Late Blight,fungal,Mild,21.89,16,0.92,91.72,Critical,Copper Oxychloride
+IMG-2026-0522,Grape,Black Rot,fungal,Moderate,39.73,99,0.59,92.82,High,Myclobutanil
+IMG-2026-0523,Sugarcane,Red Rot,fungal,Severe,74.74,167,0.39,91.59,Critical,Carbendazim 50% WP
+IMG-2026-0524,Corn,Northern Leaf Blight,fungal,Moderate,26.66,95,0.42,92.46,High,Azoxystrobin
+IMG-2026-0525,Monstera,Spider Mites,pest,Moderate,33.28,177,0.62,94.45,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0526,Wheat,Leaf Rust,fungal,Moderate,35.79,86,0.83,92.4,High,Propiconazole 25% EC
+IMG-2026-0527,Tomato,Late Blight,fungal,Severe,80.04,66,0.68,94.11,Critical,Copper Oxychloride
+IMG-2026-0528,Tulsi,Cercospora Leaf Spot,fungal,Severe,68.04,21,0.92,93.17,Low,Organic Neem Leaf Extract
+IMG-2026-0529,Corn,Northern Leaf Blight,fungal,Moderate,27.3,89,0.84,88.77,High,Azoxystrobin
+IMG-2026-0530,Sugarcane,Red Rot,fungal,Severe,70.08,119,0.74,89.56,Critical,Carbendazim 50% WP
+IMG-2026-0531,Rose,Powdery Mildew,fungal,Moderate,29.67,54,0.76,96.84,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0532,Tomato,Late Blight,fungal,Moderate,44.78,168,0.61,92.49,Critical,Copper Oxychloride
+IMG-2026-0533,Apple,Apple Scab,fungal,Severe,79.42,122,0.65,96.86,Medium,Captan 50% WP
+IMG-2026-0534,Monstera,Spider Mites,pest,Severe,63.22,152,0.69,98.24,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0535,Tomato,Late Blight,fungal,Severe,68.13,105,0.41,94.86,Critical,Copper Oxychloride
+IMG-2026-0536,Grape,Black Rot,fungal,Severe,83.8,180,0.56,96.43,High,Myclobutanil
+IMG-2026-0537,Cotton,Bacterial Blight,bacterial,Moderate,43.42,17,0.36,90.49,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0538,Corn,Northern Leaf Blight,fungal,Moderate,49.87,163,0.75,90.48,High,Azoxystrobin
+IMG-2026-0539,Monstera,Spider Mites,pest,Moderate,40.55,165,0.75,89.69,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0540,Tomato,Early Blight,fungal,Moderate,47.24,90,0.57,98.77,High,Mancozeb 75% WP
+IMG-2026-0541,Tomato,Late Blight,fungal,Severe,72.69,51,0.53,91.84,Critical,Copper Oxychloride
+IMG-2026-0542,Cotton,Bacterial Blight,bacterial,Moderate,27.1,138,0.53,89.09,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0543,Corn,Northern Leaf Blight,fungal,Severe,62.86,96,0.34,88.5,High,Azoxystrobin
+IMG-2026-0544,Corn,Northern Leaf Blight,fungal,Mild,20.4,102,0.72,95.58,High,Azoxystrobin
+IMG-2026-0545,Potato,Late Blight,fungal,Severe,79.88,77,0.64,94.18,Critical,Cymoxanil + Mancozeb
+IMG-2026-0546,Monstera,Spider Mites,pest,Severe,52.87,133,0.45,92.54,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0547,Potato,Late Blight,fungal,Moderate,25.61,125,0.56,96.26,Critical,Cymoxanil + Mancozeb
+IMG-2026-0548,Plant,Healthy Leaf,none,Healthy,0.3,2,0.09,96.51,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0549,Wheat,Leaf Rust,fungal,Moderate,27.02,31,0.68,96.95,High,Propiconazole 25% EC
+IMG-2026-0550,Apple,Apple Scab,fungal,Moderate,25.65,98,0.43,89.28,Medium,Captan 50% WP
+IMG-2026-0551,Tulsi,Cercospora Leaf Spot,fungal,Severe,74.97,150,0.93,91.51,Low,Organic Neem Leaf Extract
+IMG-2026-0552,Citrus,Bacterial Canker,bacterial,Severe,56.63,165,0.37,91.94,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0553,Rice,Bacterial Leaf Blight,bacterial,Severe,57.07,91,0.9,94.61,High,Copper Hydroxide
+IMG-2026-0554,Tulsi,Cercospora Leaf Spot,fungal,Mild,21.78,45,0.46,89.31,Low,Organic Neem Leaf Extract
+IMG-2026-0555,Monstera,Spider Mites,pest,Severe,62.62,145,0.55,94.68,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0556,Grape,Black Rot,fungal,Moderate,40.01,62,0.62,94.02,High,Myclobutanil
+IMG-2026-0557,Plant,Healthy Leaf,none,Healthy,0.97,0,0.11,98.12,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0558,Potato,Late Blight,fungal,Moderate,25.66,130,0.7,97.69,Critical,Cymoxanil + Mancozeb
+IMG-2026-0559,Tomato,Early Blight,fungal,Moderate,47.38,64,0.83,98.79,High,Mancozeb 75% WP
+IMG-2026-0560,Apple,Apple Scab,fungal,Severe,59.67,119,0.75,92.66,Medium,Captan 50% WP
+IMG-2026-0561,Sugarcane,Red Rot,fungal,Moderate,44.4,57,0.35,88.35,Critical,Carbendazim 50% WP
+IMG-2026-0562,Cotton,Bacterial Blight,bacterial,Moderate,28.1,23,0.48,94.02,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0563,Potato,Late Blight,fungal,Severe,68.99,159,0.78,96.58,Critical,Cymoxanil + Mancozeb
+IMG-2026-0564,Apple,Apple Scab,fungal,Moderate,49.29,161,0.37,96.68,Medium,Captan 50% WP
+IMG-2026-0565,Sugarcane,Red Rot,fungal,Severe,84.34,153,0.83,88.47,Critical,Carbendazim 50% WP
+IMG-2026-0566,Corn,Northern Leaf Blight,fungal,Moderate,44.22,70,0.94,89.15,High,Azoxystrobin
+IMG-2026-0567,Sugarcane,Red Rot,fungal,Severe,59.72,78,0.49,99.19,Critical,Carbendazim 50% WP
+IMG-2026-0568,Rice,Bacterial Leaf Blight,bacterial,Moderate,31.19,37,0.59,99.13,High,Copper Hydroxide
+IMG-2026-0569,Cotton,Bacterial Blight,bacterial,Severe,71.27,68,0.83,94.58,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0570,Monstera,Spider Mites,pest,Severe,74.86,171,0.71,89.86,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0571,Potato,Late Blight,fungal,Severe,69.29,67,0.82,94.38,Critical,Cymoxanil + Mancozeb
+IMG-2026-0572,Apple,Apple Scab,fungal,Moderate,32.52,152,0.41,98.96,Medium,Captan 50% WP
+IMG-2026-0573,Rose,Powdery Mildew,fungal,Moderate,33.12,83,0.92,93.76,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0574,Plant,Healthy Leaf,none,Healthy,1.02,0,0.03,98.98,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0575,Citrus,Bacterial Canker,bacterial,Severe,79.07,85,0.86,89.42,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0576,Sugarcane,Red Rot,fungal,Mild,21.69,52,0.76,97.28,Critical,Carbendazim 50% WP
+IMG-2026-0577,Cotton,Bacterial Blight,bacterial,Severe,73.58,115,0.62,94.47,Critical,Copper Oxychloride + Agrimycin
+IMG-2026-0578,Rose,Powdery Mildew,fungal,Severe,57.83,111,0.59,95.1,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0579,Plant,Healthy Leaf,none,Healthy,1.15,1,0.1,97.42,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0580,Plant,Healthy Leaf,none,Healthy,1.32,1,0.19,97.58,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0581,Tomato,Early Blight,fungal,Severe,75.43,38,0.78,93.13,High,Mancozeb 75% WP
+IMG-2026-0582,Tulsi,Cercospora Leaf Spot,fungal,Severe,62.9,31,0.82,92.45,Low,Organic Neem Leaf Extract
+IMG-2026-0583,Citrus,Bacterial Canker,bacterial,Severe,72.21,141,0.47,97.28,Critical,Streptomycin Sulfate + Copper
+IMG-2026-0584,Monstera,Spider Mites,pest,Severe,51.95,48,0.67,93.44,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0585,Monstera,Spider Mites,pest,Severe,77.27,27,0.33,95.01,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0586,Sugarcane,Red Rot,fungal,Moderate,45.55,46,0.9,89.77,Critical,Carbendazim 50% WP
+IMG-2026-0587,Rice,Bacterial Leaf Blight,bacterial,Mild,12.05,124,0.43,95.71,High,Copper Hydroxide
+IMG-2026-0588,Potato,Late Blight,fungal,Severe,76.4,92,0.4,98.45,Critical,Cymoxanil + Mancozeb
+IMG-2026-0589,Rose,Powdery Mildew,fungal,Mild,18.81,107,0.46,92.16,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0590,Plant,Healthy Leaf,none,Healthy,0.97,0,0.08,97.51,None,Optimal Irrigation & N-P-K Balanced Soil
+IMG-2026-0591,Corn,Northern Leaf Blight,fungal,Severe,67.13,124,0.73,95.88,High,Azoxystrobin
+IMG-2026-0592,Tomato,Early Blight,fungal,Moderate,27.58,34,0.39,90.53,High,Mancozeb 75% WP
+IMG-2026-0593,Tulsi,Cercospora Leaf Spot,fungal,Moderate,44.49,17,0.75,97.15,Low,Organic Neem Leaf Extract
+IMG-2026-0594,Sugarcane,Red Rot,fungal,Moderate,42.83,48,0.61,90.56,Critical,Carbendazim 50% WP
+IMG-2026-0595,Tomato,Late Blight,fungal,Severe,65.35,41,0.37,92.12,Critical,Copper Oxychloride
+IMG-2026-0596,Rose,Powdery Mildew,fungal,Mild,22.01,49,0.72,95.58,Medium,Neem Oil 1500ppm / Sulfur Spray
+IMG-2026-0597,Tomato,Late Blight,fungal,Severe,50.73,17,0.7,89.84,Critical,Copper Oxychloride
+IMG-2026-0598,Monstera,Spider Mites,pest,Severe,64.74,175,0.79,98.3,Medium,Abamectin / Insecticidal Soap
+IMG-2026-0599,Grape,Black Rot,fungal,Severe,62.12,70,0.36,89.13,High,Myclobutanil
+IMG-2026-0600,Cotton,Bacterial Blight,bacterial,Mild,20.99,113,0.53,92.81,Critical,Copper Oxychloride + Agrimycin

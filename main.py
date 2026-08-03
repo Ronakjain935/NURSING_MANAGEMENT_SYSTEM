@@ -17,9 +17,9 @@ from database import CATEGORIES, PLANTS, CROPS_AGRONOMY_DATA, ORDERS, PLANT_JOUR
 from ai_engine import ai_engine
 from ml_models import ml_engine
 from auth import get_current_user, require_roles
-from models import RecommendRequest, CropRecommendRequest, GrowthPredictRequest, WateringPredictRequest, ChatRequest, CheckoutRequest, JournalEntryRequest, BookingRequest
+from models import RecommendRequest, CropRecommendRequest, GrowthPredictRequest, WateringPredictRequest, ChatRequest, CheckoutRequest, JournalEntryRequest, BookingRequest, OrderStatusUpdateRequest
 
-from routers import auth_router, plants_router
+from routers import auth_router, plants_router, plan_orders_router
 
 app = FastAPI(
     title="PlantVerse AI Platform",
@@ -35,8 +35,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.middleware("http")
+async def add_security_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["X-Security-Policy"] = "PlantVerse-AI-HMAC-SHA256-RBAC-Active"
+    return response
+
 app.include_router(auth_router.router)
 app.include_router(plants_router.router)
+app.include_router(plan_orders_router.router)
+
 
 # --- REST API ENDPOINTS ---
 
@@ -177,6 +188,15 @@ def track_order(order_id: str):
         }
     }
 
+@app.put("/api/orders/{order_id}/status")
+def update_order_status(order_id: str, payload: OrderStatusUpdateRequest):
+    order = next((o for o in ORDERS if o["orderId"] == order_id), None)
+    if not order:
+        raise HTTPException(status_code=404, detail="Order not found")
+    order["status"] = payload.status
+    return {"status": "success", "message": f"Order {order_id} status updated to '{payload.status}'", "order": order}
+
+
 @app.get("/api/journal")
 def get_journal():
     return {"status": "success", "data": PLANT_JOURNAL}
@@ -188,18 +208,31 @@ def add_journal_entry(payload: JournalEntryRequest):
         "plantName": payload.plantName,
         "species": payload.species,
         "adoptingDate": "2026-08-01",
-        "lastWatered": "2026-08-01",
-        "nextWatering": "2026-08-08",
+        "lastWatered": "2026-08-03",
+        "nextWatering": "2026-08-10",
         "lastFertilized": "2026-08-01",
         "healthScore": 95,
         "location": payload.location,
         "notes": payload.notes,
         "timeline": [
-            {"date": "2026-08-01", "event": "Added to PlantVerse Digital Journal", "type": "adopted"}
+            {"date": "2026-08-03", "event": "Added to PlantVerse Digital Journal", "type": "adopted"}
         ]
     }
     PLANT_JOURNAL.insert(0, new_entry)
     return {"status": "success", "data": new_entry}
+
+@app.post("/api/journal/{entry_id}/water")
+def mark_journal_watered(entry_id: str):
+    for entry in PLANT_JOURNAL:
+        if entry["id"] == entry_id:
+            entry["lastWatered"] = "2026-08-03"
+            entry["nextWatering"] = "2026-08-10"
+            if "timeline" not in entry or not isinstance(entry["timeline"], list):
+                entry["timeline"] = []
+            entry["timeline"].insert(0, {"date": "2026-08-03", "event": "Watered plant & inspected foliage", "type": "watered"})
+            return {"status": "success", "message": f"Recorded watering for {entry['plantName']}", "data": entry}
+    raise HTTPException(status_code=404, detail="Journal entry not found")
+
 
 @app.get("/api/consultations")
 def get_consultations():

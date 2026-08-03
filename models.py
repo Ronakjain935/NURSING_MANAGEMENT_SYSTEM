@@ -120,3 +120,34 @@ class BookingRequest(BaseModel):
     expertId: str
     date: str
     timeSlot: str
+
+class OrderStatusUpdateRequest(BaseModel):
+    status: str
+
+# --- Nursery Service Plans & Queries Schemas ---
+class PlanModel(BaseModel):
+    id: str
+    title: str
+    price: float
+    billingCycle: str = "Monthly"
+    description: str
+    features: List[str] = []
+    badge: Optional[str] = None
+    isPopular: bool = False
+
+class PlanOrderCreate(BaseModel):
+    planId: str
+    planTitle: str
+    price: float
+    billingCycle: str = "Monthly"
+    customerName: str
+    customerEmail: str
+    customerPhone: Optional[str] = None
+    address: Optional[str] = None
+    queryNotes: str
+
+class PlanOrderStatusUpdate(BaseModel):
+    status: str
+    ownerNote: Optional[str] = None
+
+
