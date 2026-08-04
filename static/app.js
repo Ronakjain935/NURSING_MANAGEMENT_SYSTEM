@@ -1481,7 +1481,7 @@ function removeCartItem(plantId) {
 
 async function handleCartCheckoutSubmit() {
   if (state.cart.length === 0) return;
-  const u = state.currentUser || { fullName: 'Sarah Jenkins', email: 'sarah.j@example.com' };
+  const u = state.currentUser || { fullName: 'Garden Customer', email: 'customer@plantverse.ai', phone: '+1 (555) 000-0000' };
   
   try {
     const res = await fetch('/api/orders/checkout', {
@@ -2374,8 +2374,8 @@ async function renderOrderTrackingView(container, orderId = null) {
   const activeOrder = (orderId ? ordersList.find(o => o.orderId === orderId) : null) || state.activeOrder || ordersList[0] || {
     orderId: "PV-2026-8819",
     date: "2026-07-28",
-    customer: state.currentUser?.fullName || "Sarah Jenkins",
-    email: state.currentUser?.email || "sarah.j@example.com",
+    customer: state.currentUser?.fullName || "Registered Customer",
+    email: state.currentUser?.email || "customer@plantverse.ai",
     address: "452 Willow Creek Rd, San Francisco, CA",
     items: [{"id": "monstera-deliciosa", "name": "Monstera Deliciosa", "qty": 1, "price": 34.99}],
     subtotal: 34.99,
@@ -2664,8 +2664,16 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
               </div>
 
               <div>
-                <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Phone Number</label>
-                <input type="tel" id="reg-phone" placeholder="+1 (555) 000-0000" class="w-full px-4 py-2.5 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-emerald-500">
+                <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Phone Number (Real Contact)</label>
+                <input type="tel" id="reg-phone" required placeholder="+1 (555) 000-0000 or 9876543210" class="w-full px-4 py-2.5 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-emerald-500">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Account Role & Access Level</label>
+                <select id="reg-role" class="w-full px-4 py-2.5 bg-slate-800/90 border border-slate-700 rounded-xl text-xs text-white outline-none focus:border-emerald-500">
+                  <option value="CUSTOMER">Customer / Gardener Account</option>
+                  <option value="SUPER_ADMIN">Nursery Owner & Main Admin Account</option>
+                </select>
               </div>
 
               <div>
@@ -2675,9 +2683,10 @@ function renderAuthPortalView(container, activeTab = 'user', notice = null) {
 
               <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-xl shadow-md transition-all text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
                 <i class="fa-solid fa-user-plus"></i>
-                <span>Register New User Account</span>
+                <span>Register & Create Account</span>
               </button>
             </form>
+
 
             <div class="pt-3 border-t border-slate-800/80 text-center">
               <p class="text-xs text-slate-400"><i class="fa-solid fa-lock text-emerald-400 mr-1"></i> Only registered users can log in. Need an account? Click <strong class="text-emerald-300 cursor-pointer" onclick="switchUserAuthTab('register')">Create Account</strong>.</p>
@@ -2978,6 +2987,7 @@ async function handleUserRegisterSubmit(e) {
   const email = document.getElementById('reg-email')?.value || '';
   const phone = document.getElementById('reg-phone')?.value || '';
   const password = document.getElementById('reg-password')?.value || '';
+  const role = document.getElementById('reg-role')?.value || 'CUSTOMER';
 
   const errBox = document.getElementById('user-login-error');
   const errMsg = document.getElementById('user-login-error-msg');
@@ -2987,7 +2997,7 @@ async function handleUserRegisterSubmit(e) {
     const res = await fetch('/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fullName, email, phone, password, role: 'CUSTOMER' })
+      body: JSON.stringify({ fullName, email, phone, password, role })
     });
 
     const json = await res.json();
@@ -3004,9 +3014,15 @@ async function handleUserRegisterSubmit(e) {
     localStorage.setItem('pv_token', json.accessToken);
     localStorage.setItem('pv_user', JSON.stringify(json.user));
 
-    showToast(`Account created! Welcome, ${json.user.fullName}!`);
+    showToast(`Account created! Welcome, ${json.user.fullName} (${json.user.phone || 'Phone linked'})!`);
     updateHeaderAuthUI();
-    router('user-dashboard');
+    closeUserAuthModal();
+
+    if (json.user.role === 'SUPER_ADMIN' || json.user.role === 'OWNER' || json.user.role === 'ADMIN') {
+      router('owner-dashboard');
+    } else {
+      router('user-dashboard');
+    }
   } catch (err) {
     console.error('Registration error:', err);
     if (errBox && errMsg) {
@@ -3015,6 +3031,7 @@ async function handleUserRegisterSubmit(e) {
     }
   }
 }
+
 
 function handleLogout(showNotification = true) {
   state.token = null;
@@ -3033,7 +3050,7 @@ function switchUserDashboardTab(tabName) {
 }
 
 function renderUserDashboardView(container) {
-  const u = state.currentUser || { fullName: 'Sarah Jenkins', email: 'sarah.j@example.com', role: 'CUSTOMER', rewardPoints: 480, memberStatus: 'Gold Gardener' };
+  const u = state.currentUser || { fullName: 'Garden Enthusiast', email: 'user@plantverse.ai', phone: 'Not provided', role: 'CUSTOMER', rewardPoints: 100, memberStatus: 'Green Member' };
   const currentTab = state.userDashboardTab || 'plans';
 
   const myOrdersCount = state.userPlanOrders.length;
@@ -3344,7 +3361,7 @@ async function renderAdminDashboardView(container) {
               <div>
                 <div class="flex items-center space-x-3">
                   <span class="font-mono text-xs font-extrabold text-amber-400 bg-amber-900/40 px-2.5 py-1 rounded border border-amber-500/30">Order ID: PV-2026-8819</span>
-                  <span class="text-xs text-slate-400">Date: 2026-07-28 • Customer: <strong class="text-white">Sarah Jenkins</strong> (sarah.j@example.com)</span>
+                  <span class="text-xs text-slate-400">Date: 2026-08-04 • Customer: <strong class="text-white">${state.currentUser?.fullName || 'Main Customer'}</strong> (${state.currentUser?.email || 'customer@plantverse.ai'})</span>
                 </div>
                 <p class="text-xs text-slate-300 mt-2"><i class="fa-solid fa-location-dot text-emerald-400 mr-1"></i> Delivery Address: <strong>452 Willow Creek Rd, San Francisco, CA</strong></p>
               </div>

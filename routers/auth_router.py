@@ -110,8 +110,24 @@ def get_me(current_user: dict = Depends(get_current_user)):
         memberStatus=user.get("memberStatus", "Member")
     )
 
+@router.get("/users")
+def list_registered_users():
+    users_list = []
+    for email, u in USERS_DB.items():
+        users_list.append({
+            "id": u["userId"],
+            "fullName": u["fullName"],
+            "email": u["email"],
+            "phone": u.get("phone", "N/A"),
+            "role": u["role"],
+            "memberStatus": u.get("memberStatus", "Member"),
+            "rewardPoints": u.get("rewardPoints", 100)
+        })
+    return {"status": "success", "count": len(users_list), "data": users_list}
+
 
 @router.get("/security-policy")
+
 def get_security_policy():
     return {
         "status": "success",

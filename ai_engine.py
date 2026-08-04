@@ -4,6 +4,7 @@ Includes Computer Vision Leaf Disease Classifier with Grad-CAM heatmap visualiza
 Demand Forecasting ML Model, Smart Recommendation Matrix, Growth Predictor, and RAG Assistant.
 """
 
+import os
 import io
 import math
 import random
@@ -13,9 +14,26 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 from database import PLANTS, DISEASES_DB
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 class AIEngine:
     def __init__(self):
-        print("PlantVerse AI Engine initialized.")
+        self.api_key = os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY") or os.getenv("PLANTVERSE_API_KEY") or "sk-Q6dD6a716002ebc4b19138"
+        masked_key = f"{self.api_key[:6]}...{self.api_key[-4:]}" if len(self.api_key) > 10 else "***"
+        print(f"PlantVerse AI Engine initialized with API Key: {masked_key}")
+
+    def get_api_key_info(self) -> Dict[str, Any]:
+        has_key = bool(self.api_key)
+        masked_key = f"{self.api_key[:6]}...{self.api_key[-4:]}" if has_key and len(self.api_key) > 10 else "***"
+        return {
+            "configured": has_key,
+            "maskedKey": masked_key
+        }
+
 
     def diagnose_plant_image(self, image_bytes: bytes = None, filename: str = "") -> Dict[str, Any]:
         """

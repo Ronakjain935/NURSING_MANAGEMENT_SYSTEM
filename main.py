@@ -13,6 +13,12 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from database import CATEGORIES, PLANTS, CROPS_AGRONOMY_DATA, ORDERS, PLANT_JOURNAL, EXPERTS
 from ai_engine import ai_engine
 from ml_models import ml_engine
@@ -26,6 +32,10 @@ app = FastAPI(
     description="Smart Nursery, AI Crop Recommendation & Intelligent Care Ecosystem",
     version="3.0.0"
 )
+
+# Set API key state in main FastAPI application
+API_KEY = os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY") or os.getenv("PLANTVERSE_API_KEY") or "sk-Q6dD6a716002ebc4b19138"
+app.state.api_key = API_KEY
 
 app.add_middleware(
     CORSMiddleware,
@@ -53,10 +63,13 @@ app.include_router(plan_orders_router.router)
 
 @app.get("/api/health")
 def health_check():
+    masked_key = f"{API_KEY[:6]}...{API_KEY[-4:]}" if len(API_KEY) > 10 else "***"
     return {
         "status": "online",
         "system": "PlantVerse AI Platform",
         "version": "3.0.0",
+        "apiKeyConfigured": True,
+        "apiKeyMasked": masked_key,
         "models": {
             "cv_model": "PyTorch ResNet-50 Grad-CAM Engine",
             "crop_recommend_model": "Scikit-Learn Agronomy Crop Engine",
@@ -64,6 +77,17 @@ def health_check():
             "chat_model": "RAG Botanical LLM Assistant"
         }
     }
+
+@app.get("/api/config/key")
+def get_api_key_status():
+    masked_key = f"{API_KEY[:6]}...{API_KEY[-4:]}" if len(API_KEY) > 10 else "***"
+    return {
+        "status": "success",
+        "apiKeyConfigured": bool(API_KEY),
+        "apiKeyMasked": masked_key,
+        "engineKeyInfo": ai_engine.get_api_key_info()
+    }
+
 
 @app.get("/api/crops")
 def get_crops():
