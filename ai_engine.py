@@ -289,10 +289,66 @@ class AIEngine:
 
     def rag_care_chat(self, query: str) -> Dict[str, Any]:
         """
-        RAG LLM Assistant simulator querying encyclopedia knowledge base.
+        RAG LLM Assistant powered by Groq LLaMA-3.3 70B Engine with botanical encyclopedia fallback.
         """
+        groq_key = os.getenv("GROQ_API_KEY")
+
+        if groq_key:
+            try:
+                import requests
+                sys_prompt = (
+                    "You are PlantVerse AI Botanical Assistant, an expert AI Horticulturist, Agronomist, and Plant Pathologist.\n"
+                    "You have deep knowledge of over 110 houseplant species (Monstera, Snake Plant, Peace Lily, Fiddle Leaf, Money Plant, Bonsai, Succulents, Orchids) "
+                    "and 37 commercial agricultural crops (Rice, Wheat, Cotton, Coffee, Sugarcane, Tea, Maize, Spices, Fruit orchards).\n"
+                    "Provide clear, professional, warm, concise, and highly accurate botanical advice for plant care, N-P-K soil fertilization, leaf disease treatment, and watering schedules.\n"
+                    "Format key steps clearly using concise bullet points or bold text."
+                )
+
+                payload = {
+                    "model": "llama-3.3-70b-versatile",
+                    "messages": [
+                        {"role": "system", "content": sys_prompt},
+                        {"role": "user", "content": query}
+                    ],
+                    "temperature": 0.7,
+                    "max_tokens": 650
+                }
+
+                resp = requests.post(
+                    "https://api.groq.com/openai/v1/chat/completions",
+                    json=payload,
+                    headers={
+                        "Authorization": f"Bearer {groq_key}",
+                        "Content-Type": "application/json",
+                        "User-Agent": "PlantVerse/1.0"
+                    },
+                    timeout=8
+                )
+
+                if resp.status_code == 200:
+                    data = resp.json()
+                    bot_text = data["choices"][0]["message"]["content"].strip()
+
+                    q = query.lower()
+                    if "water" in q:
+                        followups = ["How to check for soil root rot?", "Which plants prefer dry soil?", "What is bottom watering?"]
+                    elif "fertilizer" in q or "npk" in q or "soil" in q:
+                        followups = ["What N-P-K ratio is best for flowering?", "How often should I feed Monstera?", "Can I use coffee grounds for soil?"]
+                    elif "yellow" in q or "pest" in q or "spot" in q:
+                        followups = ["How to treat spider mites organically?", "How to use Neem Oil spray?", "Can I scan a leaf photo for disease?"]
+                    else:
+                        followups = ["How often should I water my plants?", "What N-P-K fertilizer is best?", "How do I prevent pest infestations?"]
+
+                    return {
+                        "query": query,
+                        "response": bot_text,
+                        "ragSource": "PlantVerse Groq AI (LLaMA-3.3 70B)",
+                        "suggestedFollowUps": followups
+                    }
+            except Exception as err:
+                print("Groq API Chat Fallback triggered:", err)
+
         q = query.lower()
-        
         if "yellow" in q or "leaf" in q or "leaves" in q:
             response = "Yellowing leaves (chlorosis) usually indicate overwatering, insufficient sunlight, or a nitrogen deficiency. Check the soil moisture: if soggy, let it dry out completely. If old bottom leaves are yellowing first, apply a nitrogen-rich organic fertilizer."
             source = "PlantVerse Encyclopedia - Botanical Pathology Vol 2"

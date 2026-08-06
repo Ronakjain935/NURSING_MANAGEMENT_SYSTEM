@@ -150,4 +150,57 @@ class PlanOrderStatusUpdate(BaseModel):
     status: str
     ownerNote: Optional[str] = None
 
+# --- Enterprise Security & OTP Schemas ---
+class OTPRequest(BaseModel):
+    phone: str
+
+class OTPVerify(BaseModel):
+    phone: str
+    otp: str
+
+class EmailVerifyRequest(BaseModel):
+    email: str
+    token: str
+
+class PasswordResetRequest(BaseModel):
+    email: str
+
+class PasswordResetConfirm(BaseModel):
+    email: str
+    otpOrToken: str
+    newPassword: str
+
+class RoleUpdateRequest(BaseModel):
+    userId: str
+    newRole: str
+
+class UserStatusUpdateRequest(BaseModel):
+    userId: str
+    status: str # "ACTIVE", "SUSPENDED", "PENDING_VERIFICATION"
+
+class IndianFitQuizRequest(BaseModel):
+    city: str = "New Delhi"
+    balconySun: str = "Direct Sun (4-6 Hours)" # Direct, Indirect, Shade
+    experience: str = "Beginner"
+    petFriendly: bool = False
+    spaceSize: str = "1BHK Balcony" # Compact, Medium, Large Garden
+    hardWaterTds: Optional[int] = 350
+    aqiFocus: Optional[bool] = True
+    maxBudget: Optional[float] = 1500.0 # INR
+
+class ExpertPrescriptionRequest(BaseModel):
+    patientName: str
+    plantName: str
+    detectedDisease: str
+    organicTreatment: str
+    chemicalTreatment: str
+    recommendedProductIds: List[str] = []
+    expertNotes: str
+
+class DeliveryOTPVerification(BaseModel):
+    orderId: str
+    deliveryOTP: str
+    proofImageUrl: Optional[str] = None
+
+
 

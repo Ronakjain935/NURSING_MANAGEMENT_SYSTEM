@@ -143,11 +143,19 @@ python main.py
 | :--- | :--- | :--- | :--- |
 | **System** | `GET` | `/api/health` | System status & loaded AI models |
 | **Config** | `GET` | `/api/config/key` | API key status & masked configuration |
-| **Auth** | `POST` | `/api/auth/register` | User registration & JWT generation (supports Customer & Admin roles) |
-| **Auth** | `POST` | `/api/auth/login` | Password verification & JWT authentication |
+| **Auth** | `POST` | `/api/auth/register` | User registration with role selection & auto JWT token generation |
+| **Auth** | `POST` | `/api/auth/login` | Password verification & JWT token generation |
+| **Auth** | `POST` | `/api/auth/demo-switch/{role}` | Instantaneous token generation for demo role switching |
 | **Auth** | `GET` | `/api/auth/me` | Fetch authenticated user profile details |
 | **Auth** | `GET` | `/api/auth/users` | List all registered user accounts |
 | **Auth** | `GET` | `/api/auth/security-policy` | Security policy & RBAC permission status |
+| **Dashboards** | `GET` | `/api/dashboard/super-admin` | Super Admin Platform Command Center KPI & telemetry |
+| **Dashboards** | `GET` | `/api/dashboard/owner` | Nursery Owner revenue, gross margin & demand heatmap |
+| **Dashboards** | `GET` | `/api/dashboard/staff` | Nursery Staff dispatch queue & inventory task checklist |
+| **Dashboards** | `GET` | `/api/dashboard/expert` | Plant Expert tele-consultation workbench & pathology queue |
+| **Dashboards** | `GET` | `/api/dashboard/delivery` | Delivery Partner live routes & OTP delivery verification |
+| **Dashboards** | `GET` | `/api/dashboard/customer` | Customer digital garden twin & care reminders |
+| **Audit** | `GET` | `/api/audit/logs` | Security audit trail logs & access history |
 | **Crops AI** | `POST` | `/api/ai/crop-recommend` | Soil NPK Agronomy Crop Prediction |
 | **Disease AI** | `POST` | `/api/ai/diagnose` | Leaf pathology scan with Grad-CAM heatmap |
 | **Plants** | `GET` | `/api/plants` | Filtered plant & crop catalog |
@@ -185,13 +193,16 @@ nursery_management_system/
 ├── README.md                        # Project documentation
 ├── routers/
 │   ├── __init__.py
-│   ├── auth_router.py               # Login, Register & User profile endpoints
-│   ├── plants_router.py             # Catalog, Categories & Inventory endpoints
-│   └── plan_orders_router.py        # Nursery Service Plans & Owner Query router
+│   ├── ai_router.py                 # AI plant fit & agronomy router
+│   ├── audit_router.py              # Security audit logging router
+│   ├── auth_router.py               # Login, Register, Demo Switch & Profile router
+│   ├── dashboard_router.py          # Role-based dashboards (Super Admin, Owner, Staff, etc.)
+│   ├── plan_orders_router.py        # Nursery Service Plans & Owner Query router
+│   └── plants_router.py             # Catalog, Categories & Inventory endpoints
 └── static/
     ├── index.html                   # SPA HTML5 layout shell
     ├── styles.css                   # Luxury emerald-gold glassmorphism CSS
-    └── app.js                       # Frontend SPA router, UI views & modal handlers
+    └── app.js                       # Frontend SPA router, Auth modal, Role Switcher & Views
 ```
 
 ---

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlantVerse AI – Smart Nursery & AI Crop Recommendation Platform</title>
-  <meta name="description" content="AI-powered Nursery Management, Agricultural Crop Recommendation Engine, Computer Vision Leaf Pathology, and E-Commerce Platform.">
+  <title>PlantVerse AI – India's Smart Nursery & AI Plant Care Ecosystem</title>
+  <meta name="description" content="Commercial AI-Powered Nursery Management Platform, Computer Vision Disease Pathology with Grad-CAM, Smart Penman-Monteith Water Engine, and Multilingual Agronomy Engine.">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,80 +14,225 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="/static/styles.css">
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
 
   <!-- Header Navigation -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 transition-all shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
-      <!-- Logo -->
-      <div onclick="router('landing')" class="flex items-center space-x-3 cursor-pointer group">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-900 via-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-          <i class="fa-solid fa-wheat-awn text-2xl"></i>
+      <!-- Brand Logo -->
+      <div onclick="router('landing')" class="flex items-center space-x-3 cursor-pointer group flex-shrink-0">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-800 via-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-all">
+          <i class="fa-solid fa-wheat-awn text-xl"></i>
         </div>
-        <div>
-          <span class="font-extrabold text-xl tracking-tight text-slate-900 font-display">PlantVerse <span class="text-amber-500">AI</span></span>
-          <span class="block text-[10px] text-slate-400 font-semibold tracking-wider uppercase">Smart Nursery & Crop Agronomy</span>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-xl tracking-tight text-slate-900 font-display whitespace-nowrap">
+            PlantVerse <span class="text-amber-500">AI</span>
+          </span>
+          <span class="text-[10px] text-slate-500 font-semibold tracking-wider uppercase whitespace-nowrap">
+            Smart Nursery & Care Ecosystem
+          </span>
         </div>
       </div>
 
-      <!-- Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-6 text-xs sm:text-sm font-semibold text-slate-600">
-        <button id="nav-landing" onclick="router('landing')" class="nav-link hover:text-emerald-600 transition-colors">Home</button>
-        <button id="nav-marketplace" onclick="router('marketplace')" class="nav-link hover:text-emerald-600 transition-colors">Marketplace</button>
-        <button id="nav-crop-ai" onclick="router('crop-ai')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
-          <i class="fa-solid fa-wheat-field text-amber-500"></i>
-          <span>AI Crop Finder</span>
+      <!-- Main Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 text-xs sm:text-sm font-semibold text-slate-600">
+        <button id="nav-landing" onclick="router('landing')" class="nav-link flex items-center space-x-1.5 px-3 py-2 rounded-xl hover:text-emerald-700 hover:bg-slate-100/80 transition-all whitespace-nowrap">
+          <i class="fa-solid fa-house text-slate-400 group-hover:text-emerald-500"></i>
+          <span>Home</span>
         </button>
-        <button id="nav-ai-scan" onclick="router('ai-scan')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
+        <button id="nav-indian-quiz" onclick="router('indian-quiz')" class="nav-link flex items-center space-x-1.5 px-3 py-2 rounded-xl hover:text-emerald-700 hover:bg-slate-100/80 transition-all whitespace-nowrap">
+          <i class="fa-solid fa-wand-magic-sparkles text-emerald-600"></i>
+          <span>AI Plant Fit</span>
+        </button>
+        <button id="nav-marketplace" onclick="router('marketplace')" class="nav-link flex items-center space-x-1.5 px-3 py-2 rounded-xl hover:text-emerald-700 hover:bg-slate-100/80 transition-all whitespace-nowrap">
+          <i class="fa-solid fa-store text-emerald-500"></i>
+          <span>Marketplace</span>
+        </button>
+        <button id="nav-ai-scan" onclick="router('ai-scan')" class="nav-link flex items-center space-x-1.5 px-3 py-2 rounded-xl hover:text-emerald-700 hover:bg-slate-100/80 transition-all whitespace-nowrap">
           <i class="fa-solid fa-camera-viewfinder text-emerald-500"></i>
-          <span>AI Scan</span>
+          <span>Disease Scan</span>
         </button>
-        <button id="nav-watering-calc" onclick="router('watering-calc')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
-          <i class="fa-solid fa-droplet text-blue-500"></i>
-          <span>Water Alarm</span>
-        </button>
-        <button id="nav-ai-bot" onclick="router('ai-bot')" class="nav-link hover:text-emerald-600 transition-colors flex items-center space-x-1.5">
+        <button id="nav-ai-bot" onclick="router('ai-bot')" class="nav-link flex items-center space-x-1.5 px-3 py-2 rounded-xl hover:text-emerald-700 hover:bg-slate-100/80 transition-all whitespace-nowrap">
           <i class="fa-solid fa-robot text-teal-500"></i>
           <span>AI Assistant</span>
         </button>
+        <button id="nav-dashboard" onclick="navigateToRoleDashboard()" class="nav-link flex items-center space-x-1.5 px-3 py-2 rounded-xl hover:text-emerald-700 hover:bg-slate-100/80 transition-all whitespace-nowrap">
+          <i class="fa-solid fa-gauge-high text-amber-500"></i>
+          <span id="nav-dashboard-title">Dashboard</span>
+        </button>
       </nav>
 
-      <!-- Right Action Controls -->
-      <div class="flex items-center space-x-3">
-        <button onclick="router('cart')" title="Shopping Cart" class="relative w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 hover:text-emerald-600 hover:bg-slate-200 transition-all shadow-sm">
+      <!-- Right Action Controls & Auth -->
+      <div class="flex items-center space-x-2.5 flex-shrink-0">
+        
+        <!-- Role Quick Switch Selector -->
+        <div class="hidden md:flex items-center relative bg-slate-100/80 hover:bg-slate-100 border border-slate-200/80 rounded-xl px-2.5 py-1.5 transition-all shadow-inner">
+          <i class="fa-solid fa-user-gear text-slate-500 text-xs mr-1.5"></i>
+          <select id="role-selector-header" onchange="switchDemoRole(this.value)" class="bg-transparent text-xs font-extrabold text-slate-700 focus:outline-none cursor-pointer pr-4 appearance-none">
+            <option value="CUSTOMER">🧑‍🌾 Customer</option>
+            <option value="NURSERY_STAFF">📦 Nursery Staff</option>
+            <option value="NURSERY_OWNER">🏢 Nursery Owner</option>
+            <option value="PLANT_EXPERT">🩺 Plant Expert</option>
+            <option value="DELIVERY_PARTNER">🚚 Delivery Partner</option>
+            <option value="SUPER_ADMIN">👑 Super Admin</option>
+          </select>
+          <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 pointer-events-none absolute right-2.5"></i>
+        </div>
+
+        <!-- Cart Button -->
+        <button onclick="router('cart')" title="Shopping Cart" class="relative w-10 h-10 rounded-xl bg-slate-100/90 border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-emerald-600 hover:bg-slate-200/80 transition-all shadow-sm">
           <i class="fa-solid fa-bag-shopping text-base"></i>
-          <span id="cart-count-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-extrabold flex items-center justify-center hidden">0</span>
+          <span id="cart-count-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white shadow-sm hidden">0</span>
         </button>
 
         <!-- Dynamic Auth Container -->
         <div id="auth-header-container" class="flex items-center space-x-2">
-          <button id="btn-header-auth-portal" onclick="router('user-login')" class="flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs font-extrabold px-4 py-2 rounded-xl shadow-md transition-all">
-            <i class="fa-solid fa-right-to-bracket"></i>
-            <span>Sign In</span>
+          <button onclick="openAuthModal('CUSTOMER')" class="flex items-center space-x-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200/80 text-xs font-extrabold px-3.5 py-2.5 rounded-xl transition-all shadow-sm whitespace-nowrap">
+            <i class="fa-solid fa-user text-emerald-600"></i>
+            <span>User Login</span>
+          </button>
+          <button onclick="openAuthModal('NURSERY_OWNER')" class="flex items-center space-x-1.5 bg-slate-900 hover:bg-slate-800 text-white border border-slate-800 text-xs font-extrabold px-3.5 py-2.5 rounded-xl shadow-sm transition-all whitespace-nowrap">
+            <i class="fa-solid fa-user-shield text-amber-400"></i>
+            <span>Owner Login</span>
           </button>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 hover:text-emerald-600 transition-all">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+
       </div>
 
     </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3">
+      <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+        <button onclick="router('landing'); toggleMobileMenu();" class="flex items-center space-x-2 p-2.5 bg-slate-50 rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+          <i class="fa-solid fa-house text-emerald-500"></i>
+          <span>Home</span>
+        </button>
+        <button onclick="router('indian-quiz'); toggleMobileMenu();" class="flex items-center space-x-2 p-2.5 bg-slate-50 rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+          <i class="fa-solid fa-wand-magic-sparkles text-emerald-500"></i>
+          <span>AI Plant Fit</span>
+        </button>
+        <button onclick="router('marketplace'); toggleMobileMenu();" class="flex items-center space-x-2 p-2.5 bg-slate-50 rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+          <i class="fa-solid fa-store text-emerald-500"></i>
+          <span>Marketplace</span>
+        </button>
+        <button onclick="router('ai-scan'); toggleMobileMenu();" class="flex items-center space-x-2 p-2.5 bg-slate-50 rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+          <i class="fa-solid fa-camera-viewfinder text-emerald-500"></i>
+          <span>Disease Scan</span>
+        </button>
+        <button onclick="router('ai-bot'); toggleMobileMenu();" class="flex items-center space-x-2 p-2.5 bg-slate-50 rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+          <i class="fa-solid fa-robot text-teal-500"></i>
+          <span>AI Assistant</span>
+        </button>
+        <button onclick="navigateToRoleDashboard(); toggleMobileMenu();" class="flex items-center space-x-2 p-2.5 bg-slate-50 rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+          <i class="fa-solid fa-gauge-high text-amber-500"></i>
+          <span>Dashboard</span>
+        </button>
+      </div>
+
+      <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+        <span class="text-xs font-bold text-slate-500">Role Mode:</span>
+        <select onchange="switchDemoRole(this.value); toggleMobileMenu();" class="bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 rounded-lg px-2 py-1">
+          <option value="CUSTOMER">🧑‍🌾 Customer</option>
+          <option value="NURSERY_STAFF">📦 Nursery Staff</option>
+          <option value="NURSERY_OWNER">🏢 Nursery Owner</option>
+          <option value="PLANT_EXPERT">🩺 Plant Expert</option>
+          <option value="DELIVERY_PARTNER">🚚 Delivery Partner</option>
+          <option value="SUPER_ADMIN">👑 Super Admin</option>
+        </select>
+      </div>
+    </div>
   </header>
 
-  <!-- Main View Container -->
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="fixed top-24 right-4 z-50 flex flex-col space-y-3 pointer-events-none"></div>
+
+  <!-- Main SPA View Container -->
   <main id="main-content" class="flex-1">
     <!-- Dynamic SPA Views rendered by app.js -->
   </main>
 
+  <!-- Modal Dialog Container -->
+  <div id="modal-container" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/60 backdrop-blur-md p-4 overflow-y-auto">
+    <!-- Dynamic Modals rendered here -->
+  </div>
+
   <!-- Footer -->
   <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800 mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-      <div class="flex items-center justify-center space-x-2 text-white">
-        <i class="fa-solid fa-wheat-awn text-amber-500 text-2xl"></i>
-        <span class="font-extrabold text-xl">PlantVerse AI Platform v3.0</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4 md:col-span-1">
+          <div class="flex items-center space-x-3 text-white">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md">
+              <i class="fa-solid fa-wheat-awn text-lg"></i>
+            </div>
+            <span class="font-extrabold text-lg tracking-tight font-display">PlantVerse <span class="text-amber-500">AI</span></span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            India's most intelligent AI-powered Nursery Management Platform & Plant Care Ecosystem. Engineered for Home Gardeners, Nurseries, Farmers, and Plant Experts.
+          </p>
+          <div class="flex items-center space-x-3 text-sm text-slate-400">
+            <span class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-emerald-400 cursor-pointer"><i class="fa-brands fa-whatsapp"></i></span>
+            <span class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-emerald-400 cursor-pointer"><i class="fa-brands fa-instagram"></i></span>
+            <span class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-emerald-400 cursor-pointer"><i class="fa-brands fa-youtube"></i></span>
+          </div>
+        </div>
+
+        <!-- Portals & Roles -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider">Role Portals</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="javascript:void(0)" onclick="switchDemoRole('CUSTOMER'); navigateToRoleDashboard();" class="hover:text-emerald-400 transition-colors">Customer Care Portal</a></li>
+            <li><a href="javascript:void(0)" onclick="switchDemoRole('NURSERY_STAFF'); navigateToRoleDashboard();" class="hover:text-emerald-400 transition-colors">Nursery Staff Dispatch</a></li>
+            <li><a href="javascript:void(0)" onclick="switchDemoRole('NURSERY_OWNER'); navigateToRoleDashboard();" class="hover:text-emerald-400 transition-colors">Nursery Owner Analytics</a></li>
+            <li><a href="javascript:void(0)" onclick="switchDemoRole('PLANT_EXPERT'); navigateToRoleDashboard();" class="hover:text-emerald-400 transition-colors">Plant Expert Workbench</a></li>
+            <li><a href="javascript:void(0)" onclick="switchDemoRole('DELIVERY_PARTNER'); navigateToRoleDashboard();" class="hover:text-emerald-400 transition-colors">Delivery Partner Nav</a></li>
+            <li><a href="javascript:void(0)" onclick="switchDemoRole('SUPER_ADMIN'); navigateToRoleDashboard();" class="hover:text-emerald-400 transition-colors">Super Admin Governance</a></li>
+          </ul>
+        </div>
+
+        <!-- AI Modules -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider">AI Engines</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="javascript:void(0)" onclick="router('indian-quiz')" class="hover:text-emerald-400 transition-colors">Indian Plant Fit Wizard</a></li>
+            <li><a href="javascript:void(0)" onclick="router('ai-scan')" class="hover:text-emerald-400 transition-colors">PyTorch ResNet-50 Disease Scan</a></li>
+            <li><a href="javascript:void(0)" onclick="router('ai-bot')" class="hover:text-emerald-400 transition-colors">Groq LLaMA-3 RAG Botanical Bot</a></li>
+            <li><a href="javascript:void(0)" onclick="router('watering-calc')" class="hover:text-emerald-400 transition-colors">Penman-Monteith Smart Water</a></li>
+            <li><a href="javascript:void(0)" onclick="router('crop-ai')" class="hover:text-emerald-400 transition-colors">AI Crop Agronomy Matchmaker</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Indian Localization -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-slate-200 uppercase tracking-wider">Enterprise Security</h4>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2 text-xs">
+            <div class="flex items-center space-x-2 text-emerald-400 font-bold">
+              <i class="fa-solid fa-shield-check"></i>
+              <span>HMAC-SHA256 & OTP Verified</span>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Compliant with DPDP India 2023 privacy framework. Password hashing via Bcrypt/Argon2.
+            </p>
+          </div>
+        </div>
+
       </div>
-      <p class="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
-        AI-Powered Nursery Management, Agricultural Crop Recommendation System, Leaf Disease Computer Vision, and E-Commerce Platform.
-      </p>
-      <p class="text-[11px] text-slate-600">© 2026 PlantVerse AI. All Rights Reserved.</p>
+
+      <div class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
+        <p>© 2026 PlantVerse AI Platforms Pvt Ltd. Built for Commercial Nursery Operations across India.</p>
+        <p class="mt-2 sm:mt-0 text-[11px]">System Status: <span class="text-emerald-400 font-bold">● Online v3.0.0</span></p>
+      </div>
+
     </div>
   </footer>
 

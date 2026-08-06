@@ -25,7 +25,7 @@ from ml_models import ml_engine
 from auth import get_current_user, require_roles
 from models import RecommendRequest, CropRecommendRequest, GrowthPredictRequest, WateringPredictRequest, ChatRequest, CheckoutRequest, JournalEntryRequest, BookingRequest, OrderStatusUpdateRequest
 
-from routers import auth_router, plants_router, plan_orders_router
+from routers import auth_router, plants_router, plan_orders_router, dashboard_router, audit_router, ai_router
 
 app = FastAPI(
     title="PlantVerse AI Platform",
@@ -57,6 +57,10 @@ async def add_security_headers(request, call_next):
 app.include_router(auth_router.router)
 app.include_router(plants_router.router)
 app.include_router(plan_orders_router.router)
+app.include_router(dashboard_router.router)
+app.include_router(audit_router.router)
+app.include_router(ai_router.router)
+
 
 
 # --- REST API ENDPOINTS ---
@@ -88,6 +92,10 @@ def get_api_key_status():
         "engineKeyInfo": ai_engine.get_api_key_info()
     }
 
+
+@app.get("/api/categories")
+def get_categories():
+    return {"status": "success", "count": len(CATEGORIES), "data": CATEGORIES}
 
 @app.get("/api/crops")
 def get_crops():
@@ -150,7 +158,13 @@ def get_demand_forecast():
 @app.post("/api/ai/chat")
 def rag_care_chatbot(payload: ChatRequest):
     data = ai_engine.rag_care_chat(query=payload.query)
-    return {"status": "success", "data": data}
+    return {
+        "status": "success",
+        "reply": data["response"],
+        "source": data.get("ragSource", "PlantVerse Groq AI (LLaMA-3.3 70B)"),
+        "suggestedFollowUps": data.get("suggestedFollowUps", []),
+        "data": data
+    }
 
 @app.post("/api/orders/checkout")
 def checkout_order(payload: CheckoutRequest):
@@ -301,3 +315,8 @@ def read_root():
     if os.path.exists(index_path):
         return FileResponse(index_path)
     return HTMLResponse("<h1>PlantVerse AI Server Running</h1><p>Visit /static/index.html</p>")
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+

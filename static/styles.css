@@ -1,5 +1,6 @@
 /*
   PlantVerse AI v3.0 - Luxury Nature Glassmorphism & Agronomy Palette
+  Production-Ready SaaS Aesthetics for Nursery Management & Plant Care Ecosystem
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
@@ -23,8 +24,8 @@
   --color-gold-100: #fef3c7;
   
   --bg-gradient-hero: linear-gradient(135deg, #022c22 0%, #064e3b 40%, #047857 75%, #065f46 100%);
-  --bg-glass: rgba(255, 255, 255, 0.88);
-  --border-glass: rgba(255, 255, 255, 0.4);
+  --bg-glass: rgba(255, 255, 255, 0.90);
+  --border-glass: rgba(255, 255, 255, 0.5);
 }
 
 body {
@@ -38,7 +39,15 @@ h1, h2, h3, .font-display {
   font-family: var(--font-display);
 }
 
-/* Glassmorphism & Gold Badges */
+/* Navigation Link Styling & Alignment */
+.nav-link {
+  white-space: nowrap !important;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.25rem;
+}
+
+/* Glassmorphism & SaaS Panels */
 .glass-panel {
   background: var(--bg-glass);
   backdrop-filter: blur(16px);
@@ -47,7 +56,7 @@ h1, h2, h3, .font-display {
 }
 
 .glass-dark {
-  background: rgba(2, 44, 34, 0.88);
+  background: rgba(2, 44, 34, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(52, 211, 153, 0.25);
@@ -77,6 +86,22 @@ h1, h2, h3, .font-display {
   background-image: radial-gradient(#10b981 0.8px, transparent 0.8px), radial-gradient(#10b981 0.8px, #022c22 0.8px);
   background-size: 32px 32px;
   background-position: 0 0, 16px 16px;
+}
+
+/* Toast Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-toast {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Custom Scrollbar */
@@ -109,6 +134,16 @@ input[type=range].accent-amber {
 
 input[type=range].accent-blue {
   accent-color: #3b82f6;
+}
+
+/* Micro Animations */
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
 
 /* Print Invoice Styling */

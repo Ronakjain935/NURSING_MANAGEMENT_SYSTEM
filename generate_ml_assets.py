@@ -10,33 +10,26 @@ import csv
 
 def generate_crop_recommendation_dataset():
     filepath = "crop_recommendation_dataset.csv"
-    crops_profile = {
-        "rice": {"n": (80, 120), "p": (35, 60), "k": (35, 45), "temp": (20, 27), "hum": (80, 90), "ph": (5.5, 6.9), "rain": (180, 300)},
-        "wheat": {"n": (60, 90), "p": (30, 50), "k": (20, 40), "temp": (15, 23), "hum": (50, 70), "ph": (6.0, 7.5), "rain": (50, 100)},
-        "maize": {"n": (70, 100), "p": (40, 60), "k": (15, 30), "temp": (18, 27), "hum": (55, 75), "ph": (5.8, 7.0), "rain": (60, 110)},
-        "cotton": {"n": (110, 140), "p": (35, 60), "k": (18, 35), "temp": (22, 32), "hum": (60, 80), "ph": (5.8, 8.0), "rain": (60, 110)},
-        "sugarcane": {"n": (130, 160), "p": (40, 65), "k": (40, 60), "temp": (24, 35), "hum": (70, 85), "ph": (6.0, 7.8), "rain": (150, 250)},
-        "coffee": {"n": (90, 120), "p": (15, 35), "k": (25, 45), "temp": (23, 28), "hum": (55, 70), "ph": (6.0, 6.8), "rain": (110, 180)},
-        "tea": {"n": (100, 130), "p": (20, 40), "k": (30, 50), "temp": (18, 25), "hum": (75, 90), "ph": (4.5, 5.8), "rain": (150, 250)},
-        "banana": {"n": (90, 120), "p": (70, 95), "k": (45, 55), "temp": (25, 31), "hum": (75, 88), "ph": (5.5, 6.8), "rain": (90, 140)},
-        "mango": {"n": (15, 40), "p": (15, 35), "k": (25, 40), "temp": (27, 36), "hum": (45, 65), "ph": (5.5, 7.2), "rain": (70, 120)},
-        "chickpea": {"n": (35, 50), "p": (55, 75), "k": (75, 85), "temp": (17, 22), "hum": (15, 25), "ph": (5.9, 8.5), "rain": (65, 95)},
-        "kidneybeans": {"n": (15, 35), "p": (60, 80), "k": (15, 25), "temp": (15, 24), "hum": (18, 25), "ph": (5.5, 5.9), "rain": (60, 150)},
-        "pomegranate": {"n": (15, 40), "p": (10, 30), "k": (35, 45), "temp": (18, 25), "hum": (85, 95), "ph": (5.5, 7.2), "rain": (100, 115)},
-        "apple": {"n": (0, 40), "p": (120, 145), "k": (195, 205), "temp": (21, 24), "hum": (90, 95), "ph": (5.5, 6.5), "rain": (100, 125)},
-        "orange": {"n": (15, 40), "p": (10, 30), "k": (5, 15), "temp": (10, 35), "hum": (90, 95), "ph": (6.0, 7.5), "rain": (100, 120)},
-        "papaya": {"n": (45, 70), "p": (45, 70), "k": (45, 55), "temp": (23, 34), "hum": (90, 95), "ph": (6.5, 7.0), "rain": (140, 250)},
-        "coconut": {"n": (15, 40), "p": (10, 30), "k": (25, 35), "temp": (25, 29), "hum": (90, 98), "ph": (5.5, 6.5), "rain": (130, 220)},
-        "jute": {"n": (60, 90), "p": (35, 55), "k": (35, 45), "temp": (23, 27), "hum": (70, 85), "ph": (6.0, 7.4), "rain": (150, 200)},
-        "watermelon": {"n": (80, 120), "p": (10, 30), "k": (45, 55), "temp": (24, 27), "hum": (80, 90), "ph": (6.0, 7.0), "rain": (40, 60)},
-        "grapes": {"n": (15, 40), "p": (120, 145), "k": (195, 205), "temp": (8, 42), "hum": (80, 90), "ph": (5.5, 7.0), "rain": (60, 90)}
-    }
+    from database import CROPS_AGRONOMY_DATA
+
+    crops_profile = {}
+    for item in CROPS_AGRONOMY_DATA:
+        crop_label = item["crop"].lower().split("(")[0].strip()
+        crops_profile[crop_label] = {
+            "n": (max(5, item["N"] - 20), item["N"] + 20),
+            "p": (max(5, item["P"] - 15), item["P"] + 15),
+            "k": (max(5, item["K"] - 15), item["K"] + 15),
+            "temp": (max(5.0, item["temp"] - 4.0), item["temp"] + 4.0),
+            "hum": (max(15.0, item["humidity"] - 12.0), min(98.0, item["humidity"] + 12.0)),
+            "ph": (max(4.5, round(item["pH"] - 0.6, 2)), min(8.5, round(item["pH"] + 0.6, 2))),
+            "rain": (max(15.0, item["rainfall"] - 25.0), item["rainfall"] + 35.0)
+        }
 
     records = []
     random.seed(42)
 
     for crop, prof in crops_profile.items():
-        for _ in range(40): # 40 samples per crop = 760 total dataset rows
+        for _ in range(40):
             n = int(random.uniform(*prof["n"]))
             p = int(random.uniform(*prof["p"]))
             k = int(random.uniform(*prof["k"]))
@@ -53,7 +46,7 @@ def generate_crop_recommendation_dataset():
         writer.writerow(["N", "P", "K", "temperature", "humidity", "ph", "rainfall", "label"])
         writer.writerows(records)
 
-    print(f"Generated {filepath} with {len(records)} rows.")
+    print(f"Generated {filepath} with {len(records)} rows for {len(crops_profile)} unique crops.")
 
 def generate_crop_disease_dataset():
     filepath = "crop_disease_dataset.csv"
